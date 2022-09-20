@@ -22,7 +22,7 @@ def stub():
     return render_template("stub.html")
 
 @app.route('/ProgramFP/')
-def programFP():
+def ProgramFP():
     return render_template("ProgramFP.html")
 
 # this runs the application on the development server
