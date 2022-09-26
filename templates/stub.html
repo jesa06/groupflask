@@ -4,346 +4,130 @@
 <!- This variable sets name of browser tab  -->
 {% set project = "Stubby" %}
 
-<script>
-    /*
-    function logItType(output) {
-        console.log(typeof output, ";", output);
-    }
-    console.log("Looking at dynamic nature of types in JavaScript")
-    logItType("hello"); // String
-    logItType(2020);    // Number
-    logItType([1, 2, 3]); 
-    */
-
-
-    /*
-    function TeamMember(name, ghID, grade) {
-        this.name = name;
-        this.ghID = ghID;
-        this.grade = grade;
-        this.role = role;
-    }
-    
-    TeamMember.prototype.toJSON = function() {
-        const obj = {name: this.name, ghID: this.ghID, grade: this.grade, role: this.role};
-        const json = JSON.stringify(obj);
-        return json;
-    }
-
-    function logItType(output) {
-        console.log(typeof output, ";", output);
-    }
-
-    var teacher = new TeamMember("Sean Yeoung", "..." );  
-    logItType(teacher);  
-    logItType(teacher.toJSON());  
-
-    teacher.setRole("Teacher");
-    logItType(teacher); 
-    logItType(teacher.toJSON());
-
-    var team = [
-        new TeamMember ("Joselyn Anda", "jesa06", "Frontend Developer", 11),
-        new TeamMember ("Shruthi Malayath", "shruthim0", "DevOps", 11),
-        new TeamMember ("Jeongwoo Lee", "Jw95z", "Backend Developer", 11),
-        new TeamMember ("Justin", "...", "Scrum Master", 11)
-    ];
-
-    function Team(teacher, students) { 
-        teacher.setRole("Teacher");
-        this.teacher = teacher;
-        this.Team = [teacher];
-        this.students = students;
-        this.students.forEach(student => { student.setRole("Student"); this.Team.push(student); });
-        this.json = [];
-        this.Team.forEach(TeamMember => this.json.push(TeamMember.toJSON()));
-    }
-
-    APCSP = new Team(teacher, students);
-
-    // output of Objects and JSON in CompSci classroom
-    logItType(APCSP.Team);  // constructed classroom object
-    logItType(APCSP.Team[0].name);  // abstract 1st objects name
-    logItType(APCSP.json[0]);  // show json conversion of 1st object to string
-    logItType(JSON.parse(APCSP.json[0])); 
-    */
-
-
-    /*
-    Team.prototype._toHtml = function() {
-        var style = (
-            "display:inline-block;" +
-            "border: 2px solid green;" +
-            "box-shadow: 0.8em 0.4em 0.4em green;"
-        );
-
-        var body = "";
-
-        body += "<tr>";
-        body += "<th><mark>" + "Name" + "</mark></th>";
-        body += "<th><mark>" + "GitHub ID" + "</mark></th>";
-        body += "<th><mark>" + "Grade" + "</mark></th>";
-        body += "<th><mark>" + "Role" + "</mark></th>";
-        body += "</tr>";
-
-        for (var row of Team) {
-
-            body += "<tr>";
-
-            body += "<td>" + row.name + "</td>";
-            body += "<td>" + row.ghID + "</td>";
-            body += "<td>" + row.grade + "</td>";
-            body += "<td>" + row.role + "</td>";
-
-            body += "<tr>";
-        }
-
-        return (
-            "<div style='" + style + "'>" +
-            "<table>" +
-                body +
-            "</table>" +
-            "</div>"
-        );
-
-    };
-    */
-
-    //$$.html(APCSP._toHtml());
-</script>
-
 <!- This is a replacement block for Body in base.html -->
 {% block body %}
     <!- Try building a new body here, bootstrap is a wise choice ->
+ <div class="p-3 mb-2 bg-info text-white">Team Information</div>
+
     <script>
-/*
-        function TeamMember(name, ghID, grade) {
+
+        // define a function to hold data for a Person
+        function TeamMember(name, ghID, grade, role) {
             this.name = name;
             this.ghID = ghID;
             this.grade = grade;
             this.role = role;
         }
-        
+
+        // define a JSON conversion "method" associated with Person
         TeamMember.prototype.toJSON = function() {
             const obj = {name: this.name, ghID: this.ghID, grade: this.grade, role: this.role};
             const json = JSON.stringify(obj);
             return json;
         }
 
-        function logItType(output) {
-            console.log(typeof output, ";", output);
-        }
-
-        var teacher = new TeamMember("Sean Yeoung", "..." );  
-        logItType(teacher);  
-        logItType(teacher.toJSON());  
-
-        teacher.setRole("Teacher");
-        logItType(teacher); 
-        logItType(teacher.toJSON());
-
-        var team = [
-            new TeamMember ("Joselyn Anda", "jesa06", "Frontend Developer", 11),
-            new TeamMember ("Shruthi Malayath", "shruthim0", "DevOps", 11),
-            new TeamMember ("Jeongwoo Lee", "Jw95z", "Backend Developer", 11),
-            new TeamMember ("Justin", "...", "Scrum Master", 11)
-        ];
-
-        function Team(teacher, students) { 
-            teacher.setRole("Teacher");
-            this.teacher = teacher;
-            this.Team = [teacher];
-            this.students = students;
-            this.students.forEach(student => { student.setRole("Student"); this.Team.push(student); });
-            this.json = [];
-            this.Team.forEach(TeamMember => this.json.push(TeamMember.toJSON()));
-        }
-
-        APCSP = new Team(teacher, students);
-
-        // output of Objects and JSON in CompSci classroom
-        logItType(APCSP.Team);  // constructed classroom object
-        logItType(APCSP.Team[0].name);  // abstract 1st objects name
-        logItType(APCSP.json[0]);  // show json conversion of 1st object to string
-        logItType(JSON.parse(APCSP.json[0])); 
-    */
-
-
-    /*
-    Team.prototype._toHtml = function() {
-        var style = (
-            "display:inline-block;" +
-            "border: 2px solid green;" +
-            "box-shadow: 0.8em 0.4em 0.4em green;"
-        );
-
-        var body = "";
-
-        body += "<tr>";
-        body += "<th><mark>" + "Name" + "</mark></th>";
-        body += "<th><mark>" + "GitHub ID" + "</mark></th>";
-        body += "<th><mark>" + "Grade" + "</mark></th>";
-        body += "<th><mark>" + "Role" + "</mark></th>";
-        body += "</tr>";
-
-        for (var row of Team) {
-
-            body += "<tr>";
-
-            body += "<td>" + row.name + "</td>";
-            body += "<td>" + row.ghID + "</td>";
-            body += "<td>" + row.grade + "</td>";
-            body += "<td>" + row.role + "</td>";
-
-            body += "<tr>";
-        }
-
-        return (
-            "<div style='" + style + "'>" +
-            "<table>" +
-                body +
-            "</table>" +
-            "</div>"
-        );
-
-    };
-    */    
-
-    //    $$.html(APCSP._toHtml());
-
-        // define a function to hold data for a Person
-        function Person(name, ghID, classOf) {
-            this.name = name;
-            this.ghID = ghID;
-            this.classOf = classOf;
-            this.role = "";
-        }
-
-        // define a setter for role in Person data
-        Person.prototype.setRole = function(role) {
-            this.role = role;
-        }
-
-                // define a JSON conversion "method" associated with Person
-        Person.prototype.toJSON = function() {
-            const obj = {name: this.name, ghID: this.ghID, classOf: this.classOf, role: this.role};
-            const json = JSON.stringify(obj);
-            return json;
-        }
-
        // make a new Person and assign to variable teacher
-        var teacher = new Person("Mr M", "jm1021", 1977);  // object type is easy to work with in JavaScript
-        //alert(teacher);  // before role
-        //alert(teacher.toJSON());  // ok to do this even though role is not yet defined
-
-        // output of Object and JSON/string associated with Teacher
-        teacher.setRole("Teacher");   // set the role
+        var teacher = new TeamMember("Mr Yeung", "unknown", 0, "Teacher");  // object type is easy to work with in JavaScript
         //alert(teacher);  // before role
         //alert(teacher.toJSON());  // ok to do this even though role is not yet defined
 
         // define a student Array of Person(s)
         var students = [ 
-            new Person("Anthony", "tonyhieu", 2022),
-            new Person("Bria", "B-G101", 2023),
-            new Person("Allie", "xiaoa0", 2023),
-            new Person("Tigran", "Tigran7", 2023),
-            new Person("Rebecca", "Rebecca-123", 2023),
-            new Person("Vidhi", "unknown", 2024)
+            new TeamMember("Joselyn Anda", "jesa06", 11, "Frontend Developer"),
+            new TeamMember("Shruthi Malayath" , " shruthim0 ", 11, "DevOps"),
+            new TeamMember("Jeongwoo Lee", " Jw95z ", 11, "Backend Developer"),
+            new TeamMember("Justin Nguyen", "unknown", 11, "Scrum Master")
+           
         ];
 
         //alert(students[3].name);
 
         // define a classroom and build Classroom objects and json
-        function Classroom(teacher, students){ // 1 teacher, many student
+        function Team(teacher, students){ // 1 teacher, many student
             // start Classroom with Teacher
-            teacher.setRole("Teacher");
             this.teacher = teacher;
-            this.classroom = [teacher];
+            //alert(this.teacher);
+            this.team = [teacher];
+            //alert(this.team);
             // add each Student to Classroom
             this.students = students;
-            this.students.forEach(student => { student.setRole("Student"); this.classroom.push(student); });
+            this.students.forEach(student => this.team.push(student));
+            //alert(this.students);
             // build json/string format of Classroom
             this.json = [];
-            this.classroom.forEach(person => this.json.push(person.toJSON()));
+            this.team.forEach(teammember => this.json.push(teammember.toJSON()));
         }
 
         // make a CompSci classroom from formerly defined teacher and students
-        compsci = new Classroom(teacher, students);
+        APCSP = new Team(teacher, students);
         // output of Objects and JSON in CompSci classroom
         //alert(compsci.classroom);  // constructed classroom object
         //alert(compsci.classroom[0].name);  // abstract 1st objects name
         //alert(compsci.json[0]);  // show json conversion of 1st object to string
-        //alert(JSON.parse(compsci.json[0]));  // show JSON.parse inverse of JSON.stringify
-
-// define an HTML conversion "method" associated with Classroom
-Classroom.prototype._toHtml = function() {
-  // HTML Style is build using inline structure
-  var style = (
-    "display:inline-block;" +
-    "border: 2px solid grey;" +
-    "box-shadow: 0.8em 0.4em 0.4em grey;"
-  );
-
-  //alert(style);
+        // alert(JSON.parse(compsci.json[0]));  // show JSON.parse inverse of JSON.stringify
+        //alert(APCSP);
 
 
-  // HTML Body of Table is build as a series of concatenations (+=)
-  var body = "";
-  // Heading for Array Columns
-  body += "<tr>";
-  body += "<th><mark>" + "Name" + "</mark></th>";
-  body += "<th><mark>" + "GitHub ID" + "</mark></th>";
-  body += "<th><mark>" + "Class Of" + "</mark></th>";
-  body += "<th><mark>" + "Role" + "</mark></th>";
-  body += "</tr>";
+        // define an HTML conversion "method" associated with Classroom
+        Team.prototype._toHtml = function() {
+
+            // HTML Style is build using inline structure
+            var style = (
+                "display:inline-block;" +
+                "border: 2px solid teal;" +
+                "box-shadow: 0.8em 0.4em 0.4em black;"
+            );
+
+            //alert(style);
 
 
-  // Data of Array, iterate through each row of compsci.classroom 
-  for (var row of compsci.classroom) {
-    // tr for each row, a new line
-    body += "<tr>";
-    // td for each column of data
-    body += "<td>" + row.name + "</td>";
-    body += "<td>" + row.ghID + "</td>";
-    body += "<td>" + row.classOf + "</td>";
-    body += "<td>" + row.role + "</td>";
-    // tr to end line
-    body += "<tr>";
-  }
+            // HTML Body of Table is build as a series of concatenations (+=)
+            var body = "";
+            // Heading for Array Columns
+            body += "<tr>";
+            body += "<th><mark>" + " Name " + "</mark></th>";
+            body += "<th><mark>" + " GitHub ID     " + "</mark></th>";
+            body += "<th><mark>" + " Grade" + "</mark></th>";
+            body += "<th><mark>" + " Role " + "</mark></th>";
+            body += "</tr>";
 
-  alert(body);
-
-   // Build and HTML fragment of div, table, table body
-  return (
-//    "<div style='" + style + "'>" +
-      "<div style='display:inline-block; border: 2px solid grey; box-shadow: 0.8em 0.4em 0.4em grey;'>" +
-      "<table>" +
-        "  <tr><th><mark>Name</mark></th><th><mark>GitHub ID</mark></th><th><mark>Class Of</mark></th><th><mark>Role</mark></th></tr><tr><td>Mr M</td><td>jm1021</td><td>1977</td><td>Teacher</td><tr><tr><td>Anthony</td><td>tonyhieu</td><td>2022</td><td>Student</td><tr><tr><td>Bria</td><td>B-G101</td><td>2023</td><td>Student</td><tr><tr><td>Allie</td><td>xiaoa0</td><td>2023</td><td>Student</td><tr><tr><td>Tigran</td><td>Tigran7</td><td>2023</td><td>Student</td><tr><tr><td>Rebecca</td><td>Rebecca-123</td><td>2023</td><td>Student</td><tr><tr><td>Vidhi</td><td>unknown</td><td>2024</td><td>Student</td><tr>" +
-      "</table>" +
-    "</div>"
-  );
+            // Data of Array, iterate through each row of compsci.classroom 
+            for (var row of APCSP.team) {
+                // tr for each row, a new line
+                body += "<tr>";
+                // td for each column of data
+                body += "<td>" + row.name + "</td>";
+                body += "<td>" + row.ghID + "</td>";
+                body += "<td>" + row.grade + "</td>";
+                body += "<td>" + row.role + "</td>";
+                // tr to end line
+                body += "</tr>";
+            }
 
 
+            // Build and HTML fragment of div, table, table body
+            var sHtml = 
+                "<div style='" + style + "'>" +
+                "<table>" +
+                    body +
+                "</table>" +
+                "</div>";
 
-};
+            document.write(sHtml);
 
-        // IJavaScript HTML processor receive parameter of defined HTML fragment
+            
+            // return (
+            //     "<div style='" + style + "'>" +
+            //     "<table>" +
+            //         body +
+            //     "</table>" +
+            //     "</div>"
+            // );
+
+        };
+
+        $.html(APCSP._toHtml());
     </script>
-
-<!--
-    <div class="px-5 py-5 mx-auto">
-        <h1 class="text-success"><strong>Team Information</strong></h1>
-        <div class="p-3 mb-2 bg-dark text-white">Team Members and Roles</div>
-        <p class="text-dark"><strong>Joselyn Anda: </strong>Frontend Developer, Junior, 16 years old </h2> 
-        <p class="text-dark"><strong>Shruthi Malayath: </strong>DevOps, Junior,  years old </h2> 
-        <p class="text-dark"><strong>Justin: </strong>Scrum Master, Junior, 16 years old </h2> 
-        <p class="text-dark"><strong>Jeongwoo Lee: </strong>Backend Developer, Junior, years old </h2> 
-    </div>
--->
-
-<script>
-    $.html(compsci._toHtml());
-</script>
 
 {% endblock %}
 
