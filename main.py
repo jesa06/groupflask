@@ -25,6 +25,10 @@ def stub():
 def ProgramFP():
     return render_template("ProgramFP.html")
 
+@app.route('/Tetris/')
+def Tetris():
+    return render_template("Tetris.html")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
