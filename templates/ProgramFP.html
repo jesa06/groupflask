@@ -47,7 +47,21 @@
             <p class="text-dark"> For building the pieces/blocks in the Tetris game, we will use python figure class or class blocks to construct the different shapes. For options, the play and pause button, and other things like that, 
                 we will build it with HTML. There will be various buttons, and maybe even one to change the theme. To create a record of players and high scores, we will use python to input and save that information, and sort it based 
                 on the high score. To create the board, we will use CSS altering the font, font size, color of the board, and sizes of the board and squares. 
-        
+        <div class="container">
+            <img src="{{ url_for('static', filename='assets/tetrispythonblocks.png') }}" alt="Python Blocks">
+            <div class="content">
+                <h1>Python Blocks</h1>
+                <p>This is python figure class, and you correlate the number of the boxes to shape the blocks.</p>
+            </div>
+            </div>
+        <div class="container">
+            <img src="{{ url_for('static', filename='assets/javascriptblock.png') }}"  alt="Javascript Blocks">
+            <div class="content">
+                <h1>Javascript Blocks</h1>
+                <p>Each piece will be represented by a 3 by 3 matrix or a rectangular array or table of numbers, arranged in rows and columns</p>
+            </div>
+            </div>
+
     </div>
 {% endblock %}
 
