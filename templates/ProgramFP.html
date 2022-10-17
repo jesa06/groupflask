@@ -24,6 +24,40 @@
 
         <p class="text-success">Does the project have potential to be used for Create Performance Task submission?</p>
             <p class="text-dark">Maybe, some believe that this game is too basic and not as creative as it could be. Maybe if we tweak and change the game a little it could qualify more for the Create Performance Task. 
+        
+        <h2 class="text-success">Final Project Planning pt 1: Performance Task Criteria Rundown</h2>
+            <p class="text-dark">Row 1: Program Purpose and Function: our project's functionality can be demonstrated in a successful play through of the game.
+            <p class="text-dark">Row 2: Data Abstraction: we will need to store data if we want a point system, and then a way to display that data.
+            <p class="text-dark">Row 3: Managing Complexity: the project will have complexity as there are a lot of different parts. we will need to manage this with strategies like breaking into code segments or lists to manage complexity.
+            <p class="text-dark">Row 4: Procedural Abstraction: procedures will be needed to reduce complexity of having a bunch of code run at once for our project.
+            <p class="text-dark">Row 5: Algorithm Implementation: we will need algorithms for things like randomly selecting blocks or processing info in game.
+            <p class="text-dark">Row 6: Testing: We can test the game by playing through and seeing if it works. investigation will be looking at other's Tetris projects and quoting their work.
+            
+        <h2 class="text-success">Final Project Planning pt 2: The Outline</h2>
+            <p class="text-dark">Our project will use html and css to build the game pieces that can be viewed on game startup. Javascript html and css will be used to build
+                the game site. Our game will use some sort of data storage method to keep track of score and the pieces on the board. We will be primarily building the 
+                project in python as that is our strongest language for building actual programs. When our project is in a playable state we will play-test the game rigurously to find
+                any bugs in the game. Our final project will be a faithful recreation of Tetris.
+                                
+        <h2 class="text-success">Final Project Planning pt 3: Technical Bits</h2>
+            <p class="text-dark"> We will need to break up various parts of our game into different functions to make the game simpler. The most basic 
+                functions we will need are functions to randomize piece selection, a function to process pieces on the board, and a function to process and display score. For building the pieces/blocks in the Tetris game, we will use python figure class or class blocks to construct the different shapes. For options, the play and pause button, and other things like that, 
+                we will build it with HTML. There will be various buttons, and maybe even one to change the theme. To create a record of players and high scores, we will use python to input and save that information, and sort it based 
+                on the high score. To create the board, we will use CSS altering the font, font size, color of the board, and sizes of the board and squares. 
+        <div class="container">
+            <img src="{{ url_for('static', filename='assets/tetrispythonblocks.png') }}" alt="Python Blocks">
+            <div class="content">
+                <h1>Python Blocks</h1>
+                <p>This is python figure class, and you correlate the number of the boxes to shape the blocks.</p>
+            </div>
+            </div>
+        <div class="container">
+            <img src="{{ url_for('static', filename='assets/javascriptblock.png') }}"  alt="Javascript Blocks">
+            <div class="content">
+                <h1>Javascript Blocks</h1>
+                <p>Each piece will be represented by a 3 by 3 matrix or a rectangular array or table of numbers, arranged in rows and columns</p>
+            </div>
+            </div>
 
     </div>
 {% endblock %}
