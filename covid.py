@@ -60,3 +60,56 @@ def getCovidAPI():
         response = covid_data
 
     return response
+"""API with Country Filter
+Returns:
+    String: Filter of API response
+"""   
+def getCountry(filter):
+    # Request Covid Data
+    response = getCovidAPI()
+    # Look for Country    
+    countries = response.json().get('countries_stat')
+    for country in countries:  # countries is a list
+        if country["country_name"].lower() == filter.lower():  # this filters for country
+            return country
+    
+    return {"message": filter + " not found"}
+
+
+"""Defines API Resources 
+  URLs are defined with api.add_resource
+"""   
+class CovidAPI:
+    """API Method to GET all Covid Data"""
+    class _Read(Resource):
+        def get(self):
+            return getCovidAPI().json()
+        
+    """API Method to GET Covid Data for a Specific Country"""
+    class _ReadCountry(Resource):
+        def get(self, filter):
+            return jsonify(getCountry(filter))
+        
+    api.add_resource(_Read, '/')
+    api.add_resource(_ReadCountry, '/<string:filter>')
+
+
+"""Main or Tester Condition 
+  This code only runs when this file is played directly
+"""        
+if __name__ == "__main__": 
+    
+    # This code looks for "world data"
+    response = getCovidAPI()
+    print("World Totals")
+    world = response.json().get('world_total')  # turn response to json() so we can extract "world_total"
+    for key, value in world.items():  # this finds key, value pairs in country
+        print(key, value)
+
+    print()
+
+    # This code looks for USA in "countries_stats"
+    country = getCountry("USA")
+    print("USA Totals")
+    for key, value in country.items():
+        print(key, value)

@@ -9,7 +9,7 @@ app_api = Blueprint('api', __name__,
                    url_prefix='/api/jokes')
 
 # API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
-api = Api(app_api)
+api3 = Api(app_api)
 
 class JokesAPI:
     # not implemented
