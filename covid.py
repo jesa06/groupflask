@@ -51,10 +51,12 @@ def getCovidAPI():
         Developers use Rapid API to discover and connect to thousands of APIs. 
         """
         url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
+
         headers = {
-            'x-rapidapi-key': "dec069b877msh0d9d0827664078cp1a18fajsn2afac35ae063",
-            'x-rapidapi-host': "corona-virus-world-and-india-data.p.rapidapi.com"
+	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
+	        "X-RapidAPI-Host": "corona-virus-world-and-india-data.p.rapidapi.com"
         }
+        
         response = requests.request("GET", url, headers=headers)
         covid_data = response
     else:  # Request Covid Data
