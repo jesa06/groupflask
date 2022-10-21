@@ -5,12 +5,12 @@ from __init__ import app  # Definitions initialization
 from api import app_api # Blueprint import api definition
 from bp_projects.projects import app_projects # Blueprint directory import projects definition
 from covid import covid_api
-from tetris import Tetris_sites
+
 
 app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
 app.register_blueprint(covid_api)
-app.register_blueprint(Tetris_sites)
+
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
