@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>tetris</title>
-        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
-    </head>
+
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
+
+<!- This variable sets name of browser tab  -->
+{% set project = "Play Game: Tetris" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <!- Try building a new body here, bootstrap is a wise choice ->
     <body>
         <div id="gameField">
             <div id="gameover">
@@ -41,4 +44,53 @@
             </div>
             <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
     </body>
-</html>
+
+    <div class="px-5 py-5 mx-auto">Here we will start building!</div>
+    <head>
+        <title>Our Game</title>
+    </head>
+    <style>
+        .button {
+          border: none;
+          color: white;
+          padding: 15px 30px;
+          text-align: center;
+          text-decoration-style: darkviolet;
+          display: inline-table;
+          font-size: 26px;
+          margin: 6px 4px;
+          cursor: pointer;
+        }
+        .button1 {background-color: #790cb4;}
+        .button2 {background-color: #790cb4;} /* Purple */
+        .button3 {background-color: #790cb4;}
+    </style>        
+      <body>
+        <button class="button button2">Play</button>
+        <button class="button button1" onclick="myFunction()">How to play</button>
+        <button class="button button3" onclick="Scoreboard()">View Scoreboard</button>
+        <p id="play"></p>
+        <div id="rules">
+            Use up arrow to rotate the block. Use left and right arrow to move the block horizontally. Use the down arrow to speed up the drop of the block. Use the space block to hard drop the block all the way down.
+            </div>
+        <script>
+            function myFunction() {
+                document.getElementById("rules").innerHTML = "Use up arrow to rotate the block. Use left and right arrow to move the block horizontally. Use the down arrow to speed up the drop of the block. Use the space block to hard drop the block all the way down.";
+                var x = document.getElementById("rules");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+            }
+        
+        </script>
+
+      </body>
+
+    </div>
+{% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
+{% endblock %}
