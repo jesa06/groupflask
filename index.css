@@ -1,0 +1,50 @@
+table{
+    margin: auto;
+    border-collapse: collapse;
+}
+
+td{
+    width: 18px;
+    height: 18px;
+    text-align:center;
+    vertical-align:middle;
+    outline: 0.5px solid #EAEAEA;
+}
+
+.board{
+    background-color: #5f3dc4;
+}
+.guard{
+    background-color: #91a7ff;
+}
+.map{
+    background-color: #495057;
+}
+.ghost{
+    background-color: #495057;
+}
+
+.block0{
+    background-color: #f5f100;
+}
+.block1{
+    background-color: #e64980;
+}
+.block2{
+    background-color: #ae3ec9;
+}
+.block3{
+    background-color: #7048e8;
+}
+.block4{
+    background-color: #4263eb;
+}
+.block5{
+    background-color: #1098ad;
+}
+.block6{
+    background-color: #37b24d;
+}
+.block7{
+    background-color: #f59f00;
+}
