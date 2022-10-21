@@ -2,6 +2,7 @@ import sys
 from math import sqrt
 from random import randint
 import pygame
+from flask import Blueprint, jsonify
 from flask_restful import Api, Resource
  
 # 전역 변수
