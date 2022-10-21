@@ -1,5 +1,5 @@
-var GX = 0; //블럭을 생성할 초기 위치 X
-var GY = 3; //블럭을 생서할 초기 위치 Y
+var GX = 0; //location X
+var GY = 3; //location Y
 var NGY = 17;
 var TURN = 0;
 var TYPE = Math.round(Math.random()*6);
@@ -52,7 +52,7 @@ function ChangeColor(x, y, cN){
     document.getElementById("x"+x+"y"+y).className = cN;
 }
 
-//다음에 그려질 방향의 테트리스 그리기
+//draw in the right direction
 function drawNextTetris(NTYPE){
     for(var x=0; x<4; x++){
         for(var y=0; y<4; y++){
@@ -63,7 +63,7 @@ function drawNextTetris(NTYPE){
     }
 }
 
-//테트리스 그리기
+//draw tetris
 function drawTetris(GX, TYPE, TURN){
     for(var x=0; x<TETRIS[BLOCKTYPE][BLOCKROTATE].length; x++){
         for(var y=0; y<TETRIS[BLOCKTYPE][BLOCKROTATE][x].length; y++){
@@ -74,8 +74,8 @@ function drawTetris(GX, TYPE, TURN){
     }
 }
 
-//동작을 초기화하고 입력값에 따라 그려줄 함수
+
 function myFunction(input){
-    //테트리스 블럭 그리기
+    //draw tetris block
     drawTetris(GX, TYPE, TURN);
 }
