@@ -2,8 +2,13 @@ import sys
 from math import sqrt
 from random import randint
 import pygame
+from flask_restful import Api, Resource
  
 # 전역 변수
+Tetris_sites = Blueprint('Tetris_sites', __name__,
+                   url_prefix='/tetris')
+api = Api(Tetris_sites)
+
 pygame.init()
 smallfont = pygame.font.SysFont(None, 36)
 largefont = pygame.font.SysFont(None, 72)
