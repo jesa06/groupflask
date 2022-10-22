@@ -1,31 +1,44 @@
-<!-- Extending the predefined project layout -->
-{% extends "layouts/base.html" %}
-
-<!- This variable sets name of browser tab  -->
-{% set project = "Play Game: Tetris" %}
-
-<!- This is a replacement block for Body in base.html -->
-{% block body %}
-    <!- Try building a new body here, bootstrap is a wise choice ->
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="UTF-8">
-        <link rel ="stylesheet" href="/index.css">
-        <title>Tetris</title>
-        <script src ="/tetris_data.js"></script>
-        <script src="/index.js"></script>
+        <meta charset="utf-8">
+        <title>tetris</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
     </head>
     <body>
-        <div id = "container"></div>
+        <div id="gameField">
+            <div id="gameover">
+                <center>
+                    <h1>Game Over</h1>
+                    <h4>press 'F5' to restart</h4>
+                </center>
+            </div>
+            <div id="pause">
+                <center>
+                    <h1>Pause</h1>
+                    <h4>press 'F5' to resume</h4>
+                </center>
+            </div>
+            <table id="nextTable" border=0>
+                <tr><td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td></tr>
+                <tr><td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td></tr>
+                <tr><td id="20"></td><td id="21"></td><td id="22"></td><td id="23"></td></tr>
+                <tr><td id="30"></td><td id="31"></td><td id="32"></td><td id="33"></td></tr>
+            </table>
+            <div id="scoreField">
+                <p class="sub">LEVEL</p>
+                <p id="level">1</p>
+                <p class="sub">SCORE</p>
+                <p id="score">0</p>
+                <p class="sub">NEXT</p>
+                <p><br><br><br></p>
+                <p class="sub">HELP</p>
+                <p id="help">← ↓ →</p>
+                <p id="help">Space Bar</p>
+                <p id="help">P to pause</p>
+                <p class="sub" id="about" onclick="info()">ABOUT</p>
+                <div id="comboField"><i></i></div>
+            </div>
+            <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
     </body>
-    </html>
-    <div class="px-5 py-5 mx-auto">Here we will start building!</div>
-        
-
-    </div>
-{% endblock %}
-
-<!- This is turning off birds background from base.html -->
-{% block background %}
-{% endblock %}
+</html>
