@@ -310,6 +310,7 @@ function gameOver(){
     alert("[Game Over]\nLevel: "+level+"\nScore: "+score);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    prompt("Enter your name");
 }
 function pause(){
     if(isPaused){
@@ -329,3 +330,5 @@ function pause(){
 function info(){
     alert(copyright);
 }
+
+//input name to make Scoreboard data
