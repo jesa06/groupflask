@@ -308,9 +308,9 @@ function gameOver(){
     clearTimeout(movingThread);
     initExistField();
     alert("[Game Over]\nLevel: "+level+"\nScore: "+score);
+    alert("Enter your name");
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
-    alert("Enter your name");
 }
 function pause(){
     if(isPaused){
