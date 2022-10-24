@@ -8,6 +8,7 @@
 <!- This is a replacement block for Body in base.html -->
 {% block body %}
     <!- Try building a new body here, bootstrap is a wise choice ->
+<<<<<<< HEAD
     <html>
         <head>
             <meta charset="utf-8">
@@ -15,21 +16,23 @@
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
         </head>
     </html>
-    <body>
+=======
+    <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
+>>>>>>> c740e09 (comments)
         <div id="gameField">
             <div id="gameover">
-                <center>
-                    <h1>Game Over</h1>
+                <center> <!--puts the text in the center-->
+                    <h1>Game Over</h1> <!--bigger the number with h, larger the font size-->
                     <h4>press 'F5' to restart</h4>
                 </center>
             </div>
             <div id="pause">
                 <center>
                     <h1>Game Paused</h1>
-                    <h4>press 'F5' or 'p' to resume</h4>
+                    <h4>press 'F5' to resume</h4>
                 </center>
             </div>
-            <table id="nextTable" border=0>
+            <table id="nextTable" border=0> 
                 <tr><td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td></tr>
                 <tr><td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td></tr>
                 <tr><td id="20"></td><td id="21"></td><td id="22"></td><td id="23"></td></tr>
@@ -51,6 +54,17 @@
             </div>
             <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
     </body>
+
+   <!--
+    <script>
+        var playerName = prompt("Please enter your name", "<name>");
+            if (playerName!= null) {
+         document.getElementById("welcome").innerHTML = "Hello " + customerName + "! How are you today?";
+
+            }
+         
+    </script> 
+    -->
 
    <!-- <div class="px-5 py-5 mx-auto">Here we will start building!</div>
     <head>
