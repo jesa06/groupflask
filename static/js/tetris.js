@@ -57,7 +57,7 @@ function keyDownEventHandler(e){
         case 39: setTimeout("moveLR(1)",0); break;
         case 32: setTimeout("rotateShape()",0); break;
         case 40: moveFast(); break;
-        case 81: setTimeout("pause()"); break;
+        case 81: pause(); break;
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -310,10 +310,10 @@ function changeShape(){
 function gameOver(){
     clearTimeout(movingThread);
     initExistField();
-    alert("[Game Over]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game Over!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Enter your name]");
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
-    clearTimeout("pause()")
 }
 function pause(){
     if(isPaused){
@@ -329,3 +329,8 @@ function pause(){
         isPaused = true;
     }
 }
+
+
+
+
+
