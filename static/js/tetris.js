@@ -53,11 +53,11 @@ document.onkeydown = keyDownEventHandler;
 function keyDownEventHandler(e){
     switch(e.keyCode){
         // case 81: changeShape(); break;
-        case 37: setTimeout("moveLR(-1)",0); break;
+        case 80: setTimeout("moveLR(-1)",0); break;
         case 39: setTimeout("moveLR(1)",0); break;
         case 32: setTimeout("rotateShape()",0); break;
         case 40: moveFast(); break;
-        case 81: setTimeout("pause()", 0); break;
+        case 37: setTimeout("pause()", 0); break;
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -314,6 +314,7 @@ function gameOver(){
     alert("[Enter your name]");
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    clearTimeout(case 80)
 }
 function pause(){
     if(isPaused){
