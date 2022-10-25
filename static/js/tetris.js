@@ -1,4 +1,3 @@
-var copyright = "Copyright (c) 2020 YJYOON All rights reserved.";
 var H=34, W=20; // field size
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
@@ -46,18 +45,19 @@ var createPoint=[1,parseInt(W/2)-2];
 var currentShape, nextShape;
 var score, level, levelStack=0;
 var isPaused = false;
-
+var pa = true; 
 init();
 
 // key 
 document.onkeydown = keyDownEventHandler;
 function keyDownEventHandler(e){
     switch(e.keyCode){
+        // case 81: changeShape(); break;
         case 37: setTimeout("moveLR(-1)",0); break;
         case 39: setTimeout("moveLR(1)",0); break;
         case 32: setTimeout("rotateShape()",0); break;
         case 40: moveFast(); break;
-        case 80: pause(); break;
+        case 81: setTimeout("pause()"); break;
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -302,6 +302,9 @@ function displayCombo(combo, finalScore){
     document.getElementById("comboField").innerHTML = comboStr;
     setTimeout(function(){document.getElementById("comboField").innerHTML = "";},700);
 }
+function changeShape(){
+    displayNextShape();
+}
 
 // pause or end
 function gameOver(){
@@ -310,6 +313,7 @@ function gameOver(){
     alert("[Game Over]\nLevel: "+level+"\nScore: "+score);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    clearTimeout("pause()")
 }
 function pause(){
     if(isPaused){
@@ -324,8 +328,4 @@ function pause(){
         document.getElementById("pause").style.visibility = "visible";
         isPaused = true;
     }
-}
-
-function info(){
-    alert(copyright);
 }
