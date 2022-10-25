@@ -57,7 +57,7 @@ function keyDownEventHandler(e){
         case 39: setTimeout("moveLR(1)",0); break;
         case 32: setTimeout("rotateShape()",0); break;
         case 40: moveFast(); break;
-        case 81: pause(); break;
+        case 81: setTimeout("pause()", 0); break;
     }
 }
 document.onkeyup = keyUpEventHandler;
