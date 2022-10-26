@@ -45,7 +45,8 @@ var createPoint=[1,parseInt(W/2)-2];
 var currentShape, nextShape;
 var score, level, levelStack=0;
 var isPaused = false;
-var pa = true; 
+var isQuit = false;
+// var pa = true; 
 init();
 
 // key 
@@ -53,11 +54,11 @@ document.onkeydown = keyDownEventHandler;
 function keyDownEventHandler(e){
     switch(e.keyCode){
         // case 81: changeShape(); break;
-        case 80: setTimeout("moveLR(-1)",0); break;
-        case 39: setTimeout("moveLR(1)",0); break;
-        case 32: setTimeout("rotateShape()",0); break;
-        case 40: moveFast(); break;
-        case 37: setTimeout("pause()", 0); break;
+        case 37: setTimeout("moveLR(-1)",0); break; // Left Arrow
+        case 39: setTimeout("moveLR(1)",0); break;  // Right Arrow
+        case 32: setTimeout("rotateShape()",0); break;  // Space
+        case 40: moveFast(); break;                     // Down Arrow
+        case 80: setTimeout("pause()", 0); break;   // P
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -310,13 +311,14 @@ function changeShape(){
 function gameOver(){
     clearTimeout(movingThread);
     initExistField();
-    alert("[Game Over!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game Overwar!!---!]\nLevel: "+level+"\nScore: "+score);
     alert("[Enter your name]");
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    isQuit = true;
 }
 function pause(){
-    if(isPaused){
+    if(isPaused && isQuit){
         movingThread = setTimeout("moveDown()",movingSpeed);
         document.getElementById("pause").style.visibility = "hidden";
         document.getElementById("gameField").style.visibility = "visible";
