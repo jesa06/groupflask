@@ -310,7 +310,7 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    alert("[Game Over 00!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game over!!---!]\nLevel: "+level+"\nScore: "+score);
     alert("[Enter your name]");
     initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
@@ -318,7 +318,7 @@ function gameOver(){
     isQuit = false;
 }
 function pause(){
-    if(isPaused && isQuit){
+    if(isPaused){
         movingThread = setTimeout("moveDown()",movingSpeed);
         document.getElementById("pause").style.visibility = "hidden";
         document.getElementById("gameField").style.visibility = "visible";
