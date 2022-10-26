@@ -45,7 +45,7 @@ var createPoint=[1,parseInt(W/2)-2];
 var currentShape, nextShape;
 var score, level, levelStack=0;
 var isPaused = false;
-var isQuit = true;
+var isQuit = false;
  
 init();
 
@@ -310,15 +310,15 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    alert("[Game Over 00!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game Over 0000000!!---!]\nLevel: "+level+"\nScore: "+score);
     alert("[Enter your name]");
     initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
-    isQuit = false;
+    isQuit = true;
 }
 function pause(){
-    if(isPaused){
+    if(isPaused && isQuit){
         movingThread = setTimeout("moveDown()",movingSpeed);
         document.getElementById("pause").style.visibility = "hidden";
         document.getElementById("gameField").style.visibility = "visible";
