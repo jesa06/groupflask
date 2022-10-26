@@ -1,4 +1,3 @@
-var copyright = "Copyright (c) 2020 YJYOON All rights reserved.";
 var H=34, W=20; // field size
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
@@ -46,18 +45,20 @@ var createPoint=[1,parseInt(W/2)-2];
 var currentShape, nextShape;
 var score, level, levelStack=0;
 var isPaused = false;
-
+var isQuit = true;
+ 
 init();
 
 // key 
 document.onkeydown = keyDownEventHandler;
 function keyDownEventHandler(e){
     switch(e.keyCode){
-        case 37: setTimeout("moveLR(-1)",0); break;
-        case 39: setTimeout("moveLR(1)",0); break;
-        case 32: setTimeout("rotateShape()",0); break;
-        case 40: moveFast(); break;
-        case 80: pause(); break;
+        // case 81: changeShape(); break;
+        case 37: setTimeout("moveLR(-1)",0); break; // Left Arrow
+        case 39: setTimeout("moveLR(1)",0); break;  // Right Arrow
+        case 32: setTimeout("rotateShape()",0); break;  // Space
+        case 40: moveFast(); break;                     // Down Arrow
+        case 80: pause(); break;   // P
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -302,33 +303,37 @@ function displayCombo(combo, finalScore){
     document.getElementById("comboField").innerHTML = comboStr;
     setTimeout(function(){document.getElementById("comboField").innerHTML = "";},700);
 }
+function changeShape(){
+    displayNextShape();
+}
 
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    initExistField();
-    alert("[Game Over!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game Over 00!!---!]\nLevel: "+level+"\nScore: "+score);
     alert("[Enter your name]");
+    initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    isQuit = false;
 }
 function pause(){
-    if(isPaused){
+    if(isPaused && isQuit){
         movingThread = setTimeout("moveDown()",movingSpeed);
         document.getElementById("pause").style.visibility = "hidden";
         document.getElementById("gameField").style.visibility = "visible";
         isPaused = false;
     }
-    else{
+    else {
         clearTimeout(movingThread);
         document.getElementById("gameField").style.visibility = "hidden";
+        document.getElementById("gameover").style.visibility = "hidden";
         document.getElementById("pause").style.visibility = "visible";
         isPaused = true;
     }
 }
 
-function info(){
-    alert(copyright);
-}
 
-//input name to make Scoreboard data
+
+
+
