@@ -17,7 +17,6 @@
         </head>
     </html>
     <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
-        <center>
         <div id="gameField">
             <div id="gameover">
                 <center> <!--puts the text in the center-->
@@ -47,14 +46,13 @@
                 <p><br><br><br></p>
                 <p class="sub">HELP</p>
                 <p id="help">← ↓ →</p>
-                <p id="help">Space Bar to rotate</p>
+                <p id="help">Space Bar to rotate</p><br>
                 <p id="help">'P' to pause</p>
                 <p class="sub" id="about" onclick="info()">ABOUT</p>
                 <div id="comboField"><i></i></div>
                 </center>
             </div>
             <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
-        </center>
     </body>
 
    <!--
