@@ -310,7 +310,8 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    alert("[Game Over!afafa!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
+    alert("[Enter your name]");
     initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
