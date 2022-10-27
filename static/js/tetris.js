@@ -311,7 +311,6 @@ function changeShape(){
 function gameOver(){
     clearTimeout(movingThread);
     alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-    window.prompt("Enter your name")
     initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
