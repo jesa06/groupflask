@@ -40,11 +40,11 @@ td{
     color:rgb(199,82,82);
 }
 #nextTable{
-    float: right;
+    float: middle;
     margin: 0px;
     position: absolute;
-    left: 402px;
-    top: 402px;
+    left: 325px;
+    top: 357px;
 }
 #help{
     font-size: 16px;

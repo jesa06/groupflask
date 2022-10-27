@@ -1,4 +1,4 @@
-var H=34, W=20; // field size
+var H=41, W=20; // field size
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
     [[1,1],[1,0],[0,2],[0,1]],
@@ -310,26 +310,27 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-    alert("[Enter your name]");
+    alert("[Game Over!afafa!---!]\nLevel: "+level+"\nScore: "+score);
     initExistField();
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
-    //isQuit = false;
+    isQuit = true;
 }
 function pause(){
-    if(isPaused){
-        movingThread = setTimeout("moveDown()",movingSpeed);
-        document.getElementById("pause").style.visibility = "hidden";
-        document.getElementById("gameField").style.visibility = "visible";
-        isPaused = false;
-    }
-    else {
-        clearTimeout(movingThread);
-        document.getElementById("gameField").style.visibility = "hidden";
-        document.getElementById("gameover").style.visibility = "hidden";
-        document.getElementById("pause").style.visibility = "visible";
-        isPaused = true;
+    if(!isQuit) {
+        if(isPaused){
+            movingThread = setTimeout("moveDown()",movingSpeed);
+            document.getElementById("pause").style.visibility = "hidden";
+            document.getElementById("gameField").style.visibility = "visible";
+            isPaused = false;
+        }
+        else {
+            clearTimeout(movingThread);
+            document.getElementById("gameField").style.visibility = "hidden";
+            document.getElementById("gameover").style.visibility = "hidden";
+            document.getElementById("pause").style.visibility = "visible";
+            isPaused = true;
+        }
     }
 }
 
