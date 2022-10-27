@@ -312,6 +312,7 @@ function gameOver(){
     clearTimeout(movingThread);
     alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
     initExistField();
+    clearTimeout("moveLR()",0);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     isQuit = true;
