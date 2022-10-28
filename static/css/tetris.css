@@ -2,8 +2,8 @@ body{
     background-color: rgb(9,17,26);
 }
 td{
-    width: 14px;
-    height: 14px;
+    width: 17px;
+    height: 17px;
 }
 #gameField{
     margin-left: 20px;
@@ -43,8 +43,8 @@ td{
     float: middle;
     margin: 0px;
     position: absolute;
-    left: 325px;
-    top: 357px;
+    left: 380px;
+    top: 356px;
 }
 #help{
     font-size: 16px;
