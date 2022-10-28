@@ -47,7 +47,7 @@ var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
 
-init()
+init();
 
 // key 
 document.onkeydown = keyDownEventHandler;
