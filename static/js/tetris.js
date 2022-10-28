@@ -322,12 +322,11 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
+    initExistField();
     if (!isQuit) {
     alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
     window.prompt("Enter your name")
     }
-    initExistField();
-    clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     isQuit = true;
