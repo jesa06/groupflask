@@ -1,4 +1,4 @@
-var H=41, W=20; // field size
+var H=34, W=20; // field size
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
     [[1,1],[1,0],[0,2],[0,1]],
@@ -141,7 +141,10 @@ function createShape(){
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
         var sx = shapePoint[1]+shape[i][1];
-        if(!isValidPoint(sy,sx)) gameOver();
+        if(!isValidPoint(sy,sx)) {
+            clearTimeout(movingThread);
+            gameOver();
+        }
         var el = gebi(parseInt(sy), parseInt(sx));
         el.style.background = shapeColor;
         shapeCell.push([sy,sx]);
@@ -309,11 +312,10 @@ function changeShape(){
 
 // pause or end
 function gameOver(){
-    clearTimeout(movingThread);
     alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
     window.prompt("Enter your name")
     initExistField();
-    clearTimeout("moveLR()",0);
+    clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     isQuit = true;
