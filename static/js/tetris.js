@@ -46,7 +46,7 @@ var currentShape, nextShape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
- 
+
 init();
 
 // key 
@@ -322,12 +322,11 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    if (!isQuit) {
-    alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-    window.prompt("Enter your name")
-    }
     initExistField();
-    clearTimeout(movingThread);
+    if (!isQuit) {
+        alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
+        window.prompt("Enter your name")
+    }
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     isQuit = true;
