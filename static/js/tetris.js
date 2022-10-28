@@ -350,7 +350,3 @@ function pause(){
     }
 }
 
-
-
-
-
