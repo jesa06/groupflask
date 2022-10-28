@@ -63,7 +63,11 @@ function keyDownEventHandler(e){
 }
 document.onkeyup = keyUpEventHandler;
 function keyUpEventHandler(e){
-    if(e.keyCode == 40) moveSlow();
+    if(!isQuit) {
+        if(e.keyCode == 40) {
+            moveSlow();
+        }
+    }
 }
 
 // first setting
@@ -89,18 +93,22 @@ function gebi(y,x){
 // clear field
 function initExistField(){
     existField = new Array(H);
-    for(var i=0;i<H;i++)
+    for(var i=0;i<H;i++) {
         existField[i]=new Array(W);
-    for(var i=0;i<H;i++)
-        for(var j=0;j<W;j++)
+    }
+    for(var i=0;i<H;i++) {
+        for(var j=0;j<W;j++) {
             existField[i][j]=false;
+        }
+    }
 }
 function drawField(){
     var fieldTag = "<table id=\"gameTable\" border=0>";
     for(var i=0;i<H;i++){
         fieldTag += "<tr>";
-        for(var j=0;j<W;j++)
+        for(var j=0;j<W;j++) {
             fieldTag += "<td id=\""+String(i)+" "+String(j)+"\"></td>";
+        }
         fieldTag += "</tr>";
     }
     document.write(fieldTag);
@@ -144,6 +152,7 @@ function createShape(){
         if(!isValidPoint(sy,sx)) {
             clearTimeout(movingThread);
             gameOver();
+            break;
         }
         var el = gebi(parseInt(sy), parseInt(sx));
         el.style.background = shapeColor;
@@ -312,8 +321,10 @@ function changeShape(){
 
 // pause or end
 function gameOver(){
-    alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-    window.prompt("Enter your name")
+    if (!isQuit) {
+        alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
+        window.prompt("Enter your name")
+    }
     initExistField();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
