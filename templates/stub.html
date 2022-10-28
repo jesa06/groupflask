@@ -129,6 +129,94 @@
         $.html(APCSP._toHtml());
     </script>
 
+    <head>
+        <meta charset="utf-8">
+        <title>Scoreboard</title>
+        <link type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
+    </head>
+   <script>
+    var x = 0;
+    var array = Array();
+    
+    function add_element_to_array()
+    {
+     array[x] = document.getElementById("text1").value;
+     alert("Player Name: " + array[x] + " Added to scoreboard" );
+     x++;
+     document.getElementById("text1").value = "";
+    }
+    
+    function display_array()
+    {
+       var e = "<hr/>";   
+        
+       for (var y=0; y<array.length; y++)
+       {
+         e += "Player " + array[y] + " Score " + comboscore + "<br/>";
+       }
+       document.getElementById("Result").innerHTML = e;
+    }
+    </script>
+
+<html>
+    <head>
+    <meta charset=utf-8 />
+    <title>Tetris Scoreboard</title>
+    <style>
+    body {padding-top:50px} 
+    </style> 
+    </head>
+    <body>
+    <input type="text" id="text1"></input>
+    <input type="button" id="button1" value="Enter" onclick="add_element_to_array();"></input>
+    <input type="button" id="button2" value="View Scoreboard" onclick="display_array();"></input>
+    <div id="Result"></div> 
+    </body>
+</html>
+
+    <!-- <div id="newplayer">
+        <input type="text" placeholder="Player Name">
+        <button id="push">Enter</button>
+    </div>
+    <script>
+        #newplayer{
+            position: relative;
+            padding: 30px 20px;
+        }
+        #newplayer input{
+            width: 75%;
+            height: 45px;
+            padding: 12px;
+            color: 233;
+            font-weight: 500;
+            position: relative;
+            border-radius: 5px;
+            font-family: 'Poppins',sans-serif;
+            font-size: 15px;
+            border: 2px solid #d1d3d4;
+        }
+    
+        #newplayer input:focus{
+            outline: none;
+            border-color: #0d75ec;
+        }
+        #newplayer button{
+            position: relative;
+            float: right;
+            font-weight: 500;
+            font-size: 16px;
+            background-color: #0d75ec;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            outline: none;
+            width: 20%;
+            height: 45px;
+            border-radius: 5px;
+            font-family: 'Poppins',sans-serif;
+    }
+    </script> 
+
 {% endblock %}
 
 <!- This is turning off birds background from base.html -->
