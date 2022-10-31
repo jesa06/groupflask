@@ -42,18 +42,18 @@ var shapeCell;
 var existField;
 var shapePoint;
 var createPoint=[1,parseInt(W/2)-2];
-var currentShape, nextShape;
+var currentShape, nextShape, chagneshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
-
+var ChangecurrentColorIndex, ChangecurrentShape;
 init();
 
 // key 
 document.onkeydown = keyDownEventHandler;
 function keyDownEventHandler(e){
     switch(e.keyCode){
-        // case 81: changeShape(); break;
+        case 81: changeShape(); break; //Q key
         case 37: setTimeout("moveLR(-1)",0); break; // Left Arrow
         case 39: setTimeout("moveLR(1)",0); break;  // Right Arrow
         case 32: setTimeout("rotateShape()",0); break;  // Space
@@ -136,6 +136,7 @@ function chooseNextColor(){
     if(++nextColorIndex == shapeColorArray.length)
         nextColorIndex=0;
 }
+
 function createShape(){
     shapePoint[0] = createPoint[0];
     shapePoint[1] = createPoint[1];
@@ -315,8 +316,34 @@ function displayCombo(combo, finalScore){
     document.getElementById("comboField").innerHTML = comboStr;
     setTimeout(function(){document.getElementById("comboField").innerHTML = "";},700);
 }
+
 function changeShape(){
-    displayNextShape();
+    removeShape();
+    shapeCell = [];
+    clearTimeout(movingThread);
+    nextShape = parseInt(Math.random() * shapeArray.length);
+    shapePoint[0] = createPoint[0];
+    shapePoint[1] = createPoint[1];
+    currentShape = nextShape;
+    currentColorIndex = nextColorIndex-1;
+    shapeColor = shapeColorArray[currentColorIndex];
+    var shape = shapeArray[currentShape];
+    var shape = shapeArray[nextShape];
+    var color = shapeColorArray[nextColorIndex];
+    for(var i=0;i<shape.length;i++){
+        var sy = shapePoint[0]+shape[i][0];
+        var sx = shapePoint[1]+shape[i][1];
+        if(!isValidPoint(sy,sx)) {
+            clearTimeout(movingThread);
+            gameOver();
+        }
+        var el = gebi(parseInt(sy), parseInt(sx));
+        el.style.background = shapeColor;
+        shapeCell.push([sy,sx]);
+    }
+    levelStack++;
+    leveling();
+    movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
 // pause or end
