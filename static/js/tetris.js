@@ -352,7 +352,7 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your name")
+        window.prompt("Enter your namesssss");
     }
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
