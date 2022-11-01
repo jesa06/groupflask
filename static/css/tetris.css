@@ -3,8 +3,8 @@ body{
 }
 td{
     border: 2px solid #372c25;
-    width: 14px;
-    height: 14px;
+    width: 17px;
+    height: 17px;
 }
 #gameField{
     margin-left: 20px;
@@ -37,15 +37,15 @@ td{
 #about{
     font-size: 20px;
 }
-#about:hover{
+/*#about:hover{
     color:rgb(199,82,82);
-}
+}*/
 #nextTable{
     float: middle;
     margin: 0px;
     position: absolute;
     left: 380px;
-    top: 356px;
+    top: 338px;
 }
 #help{
     font-size: 12px;

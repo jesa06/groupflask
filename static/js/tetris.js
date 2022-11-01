@@ -134,8 +134,9 @@ function chooseNextShape(){
     nextShape = parseInt(Math.random() * shapeArray.length);
 }
 function chooseNextColor(){
-    if(++nextColorIndex == shapeColorArray.length)
+    if(++nextColorIndex == shapeColorArray.length) {
         nextColorIndex=0;
+    }
 }
 
 function createShape(){
@@ -327,6 +328,9 @@ function changeShape(){
     shapePoint[1] = createPoint[1];
     currentShape = changeshape;
     currentColorIndex = nextColorIndex-1;
+    if (currentColorIndex == -1) {
+        currentColorIndex = 5;
+    }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
     var shape = shapeArray[changeshape];
@@ -342,7 +346,6 @@ function changeShape(){
         el.style.background = shapeColor;
         shapeCell.push([sy,sx]);
     }
-    levelStack++;
     leveling();
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
@@ -353,7 +356,7 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your namesssss");
+        window.prompt("Enter your name/nickname:");
     }
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
