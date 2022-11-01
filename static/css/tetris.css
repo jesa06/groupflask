@@ -2,8 +2,9 @@ body{
     background-color: rgb(9,17,26);
 }
 td{
-    width: 17px;
-    height: 17px;
+    border: 2px solid #372c25;
+    width: 14px;
+    height: 14px;
 }
 #gameField{
     margin-left: 20px;
@@ -47,7 +48,7 @@ td{
     top: 356px;
 }
 #help{
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
     font-weight: bold;
     color: white;
