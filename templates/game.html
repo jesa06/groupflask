@@ -16,7 +16,9 @@
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
         </head>
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
-            <button onclick="gameOver()">Click here to end the game</button>
+            <button onclick="myFunction()">Click here to end the game</button> 
+           
+
             <div id="gameField">
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
@@ -55,8 +57,15 @@
                 </div>
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
                 <script>function myFunction() {
-                    alert("test button?");
-                }
+                    if(!isPaused){
+                        gameOver();
+                    }
+                    if(isPaused) {
+                        alert();
+                    }
+                } </script>
+
+                
                 </script> 
         </body>
     </html>
