@@ -47,7 +47,6 @@ var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
 var ChangecurrentColorIndex, ChangecurrentShape;
-var ischanged = true;
 init();
 
 // key 
@@ -64,11 +63,10 @@ function keyDownEventHandler(e){
 }
 document.onkeyup = keyUpEventHandler;
 function keyUpEventHandler(e){
-    if(!isQuit) {
-        if(e.keyCode == 40) {
-            moveSlow();
-        }
+    if(e.keyCode == 40) {
+        moveSlow();
     }
+    
 }
 
 // first setting
@@ -134,9 +132,8 @@ function chooseNextShape(){
     nextShape = parseInt(Math.random() * shapeArray.length);
 }
 function chooseNextColor(){
-    if(++nextColorIndex == shapeColorArray.length) {
+    if(++nextColorIndex == shapeColorArray.length)
         nextColorIndex=0;
-    }
 }
 
 function createShape(){
@@ -320,9 +317,9 @@ function displayCombo(combo, finalScore){
 }
 
 function changeShape(){
-    clearTimeout(movingThread);
     removeShape();
     shapeCell = [];
+    clearTimeout(movingThread);
     changeshape = parseInt(Math.random() * shapeArray.length);
     shapePoint[0] = createPoint[0];
     shapePoint[1] = createPoint[1];
@@ -333,8 +330,8 @@ function changeShape(){
     }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
-    var shape = shapeArray[changeshape];
-    var color = shapeColorArray[nextColorIndex];
+    var shape = shapeArray[changesphape];
+    var color = shapeColorArray[nextColorIndex-1];
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
         var sx = shapePoint[1]+shape[i][1];
@@ -353,13 +350,13 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
-    initExistField();
-    if (!isQuit) {
-        alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your name/nickname:");
-    }
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    initExistField();
+    if (!isQuit) {
+        alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
+        window.prompt("Enter your name");
+    }
     isQuit = true;
 }
 function pause(){
