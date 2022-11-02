@@ -66,17 +66,21 @@
                 } 
                 </script>
                 <script>function helpFunction() {
-                    alert("clear lines with the falling pieces to score! just create lines with the falling pieces! don't let the blocks reach the top or you lose!")
-                }</script>
-        </body>
-    
-        <audio hidden controls autoplay loop>
-            <source src="untitled/users/jesa/downloads/Tetris.mp3" type="audio/ogg">
-            <embed src="untitled/users/jesa/downloads/Tetris.mp3" autostart="true" loop="true" hidden="true"> 
-        </audio>
+                    alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
+                }
+                </script>
+                <audio id="player" autoplay controls loop>
+                    <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
+                </audio>
+            </body>
+       
     </html>
 
    <!--
+      <audio controls autoplay loop>
+            <source src="/vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg">
+            <audio src="Tetris.mp3" preload="auto">
+        </audio>
     <script>
         var playerName = prompt("Please enter your name", "<name>");
             if (playerName!= null) {
