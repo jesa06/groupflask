@@ -325,6 +325,9 @@ function changeShape(){
     shapePoint[1] = createPoint[1];
     currentShape = nextShape;
     currentColorIndex = nextColorIndex-1;
+    if (currentColorIndex = -1) {
+        currentColorIndex = 5;
+    }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
     var shape = shapeArray[nextShape];
