@@ -67,11 +67,12 @@
                 </script>
                 <script>function helpFunction() {
                     alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
-                }</script>
-        </body>
-                <audio controls>
-                    <source src="vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg" autoplay controls>
+                }
+                </script>
+                <audio id="player" autoplay controls loop>
+                    <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
+            </body>
        
     </html>
 
