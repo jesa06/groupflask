@@ -46,7 +46,7 @@ var currentShape, nextShape, chagneshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
-var ChangecurrentColorIndex, ChangecurrentShape;
+
 init();
 
 // key 
