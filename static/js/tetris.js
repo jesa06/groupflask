@@ -320,17 +320,17 @@ function changeShape(){
     removeShape();
     shapeCell = [];
     clearTimeout(movingThread);
-    nextShape = parseInt(Math.random() * shapeArray.length);
+    changeshape = parseInt(Math.random() * shapeArray.length);
     shapePoint[0] = createPoint[0];
     shapePoint[1] = createPoint[1];
-    currentShape = nextShape;
+    currentShape = changeshape;
     currentColorIndex = nextColorIndex-1;
     if (currentColorIndex = -1) {
         currentColorIndex = 5;
     }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
-    var shape = shapeArray[nextShape];
+    var shape = shapeArray[changeshape];
     var color = shapeColorArray[nextColorIndex];
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
