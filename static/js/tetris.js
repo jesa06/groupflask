@@ -47,7 +47,6 @@ var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
 var ChangecurrentColorIndex, ChangecurrentShape;
-var ischanged = true;
 init();
 
 // key 
@@ -64,11 +63,10 @@ function keyDownEventHandler(e){
 }
 document.onkeyup = keyUpEventHandler;
 function keyUpEventHandler(e){
-    if(!isQuit) {
-        if(e.keyCode == 40) {
-            moveSlow();
-        }
+    if(e.keyCode == 40) {
+        moveSlow();
     }
+    
 }
 
 // first setting
