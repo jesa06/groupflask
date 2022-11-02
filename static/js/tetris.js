@@ -325,7 +325,7 @@ function changeShape(){
     shapePoint[1] = createPoint[1];
     currentShape = changeshape;
     currentColorIndex = nextColorIndex-1;
-    if (currentColorIndex = -1) {
+    if (currentColorIndex == -1) {
         currentColorIndex = 5;
     }
     shapeColor = shapeColorArray[currentColorIndex];
