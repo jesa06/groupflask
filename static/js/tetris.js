@@ -134,9 +134,8 @@ function chooseNextShape(){
     nextShape = parseInt(Math.random() * shapeArray.length);
 }
 function chooseNextColor(){
-    if(++nextColorIndex == shapeColorArray.length) {
+    if(++nextColorIndex == shapeColorArray.length)
         nextColorIndex=0;
-    }
 }
 
 function createShape(){
@@ -320,20 +319,17 @@ function displayCombo(combo, finalScore){
 }
 
 function changeShape(){
-    clearTimeout(movingThread);
     removeShape();
     shapeCell = [];
-    changeshape = parseInt(Math.random() * shapeArray.length);
+    clearTimeout(movingThread);
+    nextShape = parseInt(Math.random() * shapeArray.length);
     shapePoint[0] = createPoint[0];
     shapePoint[1] = createPoint[1];
-    currentShape = changeshape;
+    currentShape = nextShape;
     currentColorIndex = nextColorIndex-1;
-    if (currentColorIndex == -1) {
-        currentColorIndex = 5;
-    }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
-    var shape = shapeArray[changeshape];
+    var shape = shapeArray[nextShape];
     var color = shapeColorArray[nextColorIndex];
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
@@ -346,6 +342,7 @@ function changeShape(){
         el.style.background = shapeColor;
         shapeCell.push([sy,sx]);
     }
+    levelStack++;
     leveling();
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
@@ -355,8 +352,8 @@ function gameOver(){
     clearTimeout(movingThread);
     initExistField();
     if (!isQuit) {
-        alert("[Game Over 0000!!---!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your name/nickname:");
+        alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
+        window.prompt("Enter your name");
     }
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
