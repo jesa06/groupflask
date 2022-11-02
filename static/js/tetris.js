@@ -46,7 +46,7 @@ var currentShape, nextShape, chagneshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
-var ChangecurrentColorIndex, ChangecurrentShape;
+
 init();
 
 // key 
@@ -330,8 +330,8 @@ function changeShape(){
     }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
-    var shape = shapeArray[changesphape];
-    var color = shapeColorArray[nextColorIndex-1];
+    var shape = shapeArray[changeshape];
+    var color = shapeColorArray[nextColorIndex];
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
         var sx = shapePoint[1]+shape[i][1];
