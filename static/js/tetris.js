@@ -37,7 +37,7 @@ var movingThread, movingSpeed;
 var fastMode = false;
 var initSpeed = 500,
     deltaSpeed = 40,
-    fastSpeed = 25;
+    fastSpeed = 35;
 var shapeCell;
 var existField;
 var shapePoint;
