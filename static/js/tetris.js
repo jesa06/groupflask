@@ -340,7 +340,6 @@ function changeShape(){
         el.style.background = shapeColor;
         shapeCell.push([sy,sx]);
     }
-    levelStack++;
     leveling();
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
@@ -348,13 +347,13 @@ function changeShape(){
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
+    document.getElementById("gameField").style.visibility = "hidden";
+    document.getElementById("gameover").style.visibility = "visible";
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
         window.prompt("Enter your name");
     }
-    document.getElementById("gameField").style.visibility = "hidden";
-    document.getElementById("gameover").style.visibility = "visible";
     isQuit = true;
 }
 function pause(){
