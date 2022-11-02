@@ -17,8 +17,7 @@
         </head>
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
             <button onclick="myFunction()">Click here to end the game</button> 
-           
-
+            <button class="button button1" onclick="helpFunction()">How to play</button>
             <div id="gameField">
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
@@ -64,19 +63,23 @@
                     if(isPaused) {
                         alert("you cannot end the game on the pause screen");
                     }
-                } </script>
-
-                
-                </script> 
+                } 
+                </script>
+                <script>function helpFunction() {
+                    alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
+                }</script>
         </body>
-    
-        <audio hidden controls autoplay loop>
-            <source src="untitled/users/jesa/downloads/Tetris.mp3" type="audio/ogg">
-            <embed src="untitled/users/jesa/downloads/Tetris.mp3" autostart="true" loop="true" hidden="true"> 
-        </audio>
+                <audio controls>
+                    <source src="vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg" autoplay controls>
+                </audio>
+       
     </html>
 
    <!--
+      <audio controls autoplay loop>
+            <source src="/vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg">
+            <audio src="Tetris.mp3" preload="auto">
+        </audio>
     <script>
         var playerName = prompt("Please enter your name", "<name>");
             if (playerName!= null) {
