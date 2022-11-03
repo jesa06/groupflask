@@ -378,6 +378,7 @@ function pause(){
             isPaused = false;
         }
         else {
+            playAudio();
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
