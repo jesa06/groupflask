@@ -25,6 +25,7 @@
                     <center> <!--puts the text in the center-->
                         <h1>Game Over</h1> <!--bigger the number with h, larger the font size-->
                         <h4>press 'F5' to restart</h4>
+
                     </center>
                 </div>
                 <div id="pause">
@@ -75,26 +76,6 @@
                 </script>
                 
                 <script>
-                    var x = 0;
-                    var array = Array();
-    
-                    function add_score_to_array(){
-                        array[x] = document.getElementById("text1").value;
-                        alert("Player Name: " + array[x] + " Added to the scoreboard" );
-                        x++;
-                        document.getElementById("text1").value = "";
-                    }
-    
-                    function display_array(){
-                        alert(playerFinalScore);
-                        var e = "<hr/>";   
-                        for (var y=0; y<array.length; y++)
-                        {
-                            e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
-                        }
-                        document.getElementById("Result").innerHTML = e;
-                    }
-
                     let Scoreboard = {
                             name: x,
                             score: comboScore
@@ -106,29 +87,34 @@
 
                     } 
                 </script>
+
+                <script>
+                    var arrayScoreboard = [];
+
+                    var x = document.getElementById("audio");
+                    function playAudio() {
+                        x.play();
+                    }
+                    function pauseAudio() {
+                        x.pause();
+                    }
+                    if (isPaused)  {
+                        isPaused = false;
+                        pauseAudio();
+                    }
+                    else {
+                        isPaused = true;
+                        playAudio();
+                    }
+                
+
+                </script>
+
                 <audio id="audio" autoplay hidden controls loop>
                     <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
                 
             </body>
-<!--< !!!!!JUSTIN API BACKUP CODE!!!! <script>function api() {const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '6a13c0a609mshb8a55b62f42e6d0p15ec9ejsnaf557400ec31',
-		'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
-	}
-};
-
-fetch('https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=tetris&pageNumber=1&pageSize=10&autoCorrect=true', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-    document.getElementById("test").innerHTML = JSON.stringify(Array(10), null, 2);
-    
-
-
-}</script> -->
-
 
        
     </html>
