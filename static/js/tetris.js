@@ -60,10 +60,11 @@ var shapeCell;
 var existField;
 var shapePoint;
 var createPoint=[1,parseInt(W/2)-2];
-var currentShape, nextShape, chagneshape;
+var currentShape, nextShape, changeshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
+var cntPlayer = 0;
 
 init();
 
@@ -77,6 +78,7 @@ function keyDownEventHandler(e){
         case 32: setTimeout("rotateShape()",0); break;  // Space
         case 40: moveFast(); break;                     // Down Arrow
         case 80: pause(); break;   // P
+        case 82: pause(); break;   // r
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -199,7 +201,7 @@ function initNextTable(){
 //  adjust figure
 function moveDown(){
     if(!canMove(1,0)){
-        commitExist();
+        commitExist(); 
         checkLine();
         shapeCell=[];
         createShape();
@@ -286,6 +288,8 @@ function commitExist(){
         existField[y][x]=true;
     }
 }
+
+
 function checkLine(){
     var plusScore = level * 100;
     var combo = 0;
@@ -295,6 +299,7 @@ function checkLine(){
             removeLine(i);
             i++;
             finalScore += updateScore(plusScore,++combo);
+            playerFinalScore += finalScore;
         }
         if(combo > 0) displayCombo(combo, finalScore);
     }
@@ -365,27 +370,46 @@ function changeShape(){
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
+var x = document.getElementById("audio");
+function playAudio() {
+    x.play();
+    }
+function pauseAudio() {
+    x.pause();
+    }
+
+
+var arrayScoreboard = [];
+
 // pause or end
 function gameOver(){
+    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your name");
+        playerName = window.prompt("Enter Name");
+        arrayScoreboard[cntPlayer] = {name: playerName, pscore: score};
+        //alert(arrayScoreboard[cntPlayer].pscore);
+        cntPlayer++;
     }
     isQuit = true;
+
+    alert(cntPlayer);
 }
 function pause(){
     if(!isQuit) {
         if(isPaused){
+            playAudio();
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
+            pauseAudio();
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
@@ -394,4 +418,3 @@ function pause(){
         }
     }
 }
-

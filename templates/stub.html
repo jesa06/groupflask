@@ -134,32 +134,66 @@
         <title>Scoreboard</title>
         <link type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
     </head>
+
    <script>
-    var x = 0;
-    var array = Array();
+
+    var x = 0;    
+    var arrayScoreboard = [];
     
-    function add_element_to_array()
-    {
-     array[x] = document.getElementById("text1").value;
-     alert("Player Name: " + array[x] + " Added to scoreboard" );
-     x++;
-     document.getElementById("text1").value = "";
+    function add_element_to_array(){
+        var playerName = document.getElementById("name").value; 
+        var playerScore = document.getElementById("score").value; 
+
+        arrayScoreboard[x] = {name: playerName, score: playerScore};
+
+//        alert("Player Name: " + arrayScoreboard[x].name + " Added to the scoreboard");
+//        alert("Score: " + arrayScoreboard[x].score + " Added to the scoreboard");
+
+        x++;
+
+        document.getElementById("name").value = "";
+        document.getElementById("score").value = "";
     }
-    
-    function display_array()
-    {
-       var e = "<hr/>";   
+
+    function display_array() {
+        arrayScoreboard.sort(function(a, b) {
+            return ((Number(a.score) > Number(b.score)) ? -1 : ((a.score == b.score) ? 0 : 1));
+        });
+
+//        arrayScoreboard.sort(function(a, b) {a.score - b.score});
+
+        for (var i = 0; i<arrayScoreboard.length; i++) {
+            alert(arrayScoreboard[i].score + ", " + arrayScoreboard[i].name);
+        }
+
+        var e = "<table>";  
+        e += "<tr><td>Player</td><td>Score</td></tr>";
+
+        for (var x=0; x<arrayScoreboard.length; x++) {
+            e += "<tr><td>" + arrayScoreboard[x].name + "</td><td>" + arrayScoreboard[x].score + "</td></tr>";
+        }
+        e += "</table>";
         
-       for (var y=0; y<array.length; y++)
-       {
-         e += "Player " + array[y] + " Score: " +  "<br/>";
-       }
-       document.getElementById("Result").innerHTML = e;
+        document.getElementById("Result").innerHTML = e;
     }
+
+
+
+
     </script>
 
 <html>
     <head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            th, td {
+                padding: 15px;
+                border: 1px solid black;
+            }
+
+        </style>
     <meta charset=utf-8 />
     <title>Tetris Scoreboard</title>
     <style>
@@ -167,7 +201,8 @@
     </style> 
     </head>
     <body>
-    <input type="text" id="text1"></input>
+    <input type="text" id="name"></input>
+    <input type="text" id="score"></input>
     <input type="button" id="button1" value="Enter" onclick="add_element_to_array();"></input>
     <input type="button" id="button2" value="View Scoreboard" onclick="display_array();"></input>
     <div id="Result"></div> 

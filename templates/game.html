@@ -18,6 +18,8 @@
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
             <!-- <button onclick="myFunction()">Click here to end the game</button>-->
             <button class="button button1" onclick="helpFunction()">How to play</button>
+            <button class="button button2" onclick="api()">info</button>
+
             <div id="gameField">
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
@@ -57,50 +59,81 @@
                 </div>
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
                 <script>
-                function myFunction() {
-                    if(!isPaused){
-                        gameOver();
-                    }
-                    if(isPaused) {
-                        alert("you cannot end the game on the pause screen");
-                    }
-                } 
+                    function myFunction() {
+                        if(!isPaused){
+                            gameOver();
+                        }
+                        if(isPaused) {
+                            alert("you cannot end the game on the pause screen");
+                        }
+                    } 
                 </script>
-                <script>function helpFunction() {
-                    alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
-                }
+                <script>
+                    function helpFunction() {
+                        alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
+                    }
                 </script>
                 
+                <script>
+                    var x = 0;
+                    var array = Array();
+    
+                    function add_score_to_array(){
+                        array[x] = document.getElementById("text1").value;
+                        alert("Player Name: " + array[x] + " Added to the scoreboard" );
+                        x++;
+                        document.getElementById("text1").value = "";
+                    }
+    
+                    function display_array(){
+                        alert(playerFinalScore);
+                        var e = "<hr/>";   
+                        for (var y=0; y<array.length; y++)
+                        {
+                            e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
+                        }
+                        document.getElementById("Result").innerHTML = e;
+                    }
+
+                    let Scoreboard = {
+                            name: x,
+                            score: comboScore
+                        }
+
+                    function Scoreboard(){
+                        const finalScore = [];
+                        finalScore.sort(function(a, b){return b - a});
+
+                    } 
+                </script>
                 <audio id="audio" autoplay hidden controls loop>
                     <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
                 
-                <script>
-                    var x = document.getElementById("audio");
-                    function playAudio() {
-                        x.play();
-                        }
-                    function pauseAudio() {
-                        x.pause();
-                        }
-                    if(!isPaused){
-                        playAudio();
-                        }
-                    if(isPaused) {
-                        pauseAudio()
-                        }
-
-        
-                </script>
             </body>
+<!--< !!!!!JUSTIN API BACKUP CODE!!!! <script>function api() {const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '6a13c0a609mshb8a55b62f42e6d0p15ec9ejsnaf557400ec31',
+		'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+	}
+};
+
+fetch('https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=tetris&pageNumber=1&pageSize=10&autoCorrect=true', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+    document.getElementById("test").innerHTML = JSON.stringify(Array(10), null, 2);
+    
+
+
+}</script> -->
+
+
        
     </html>
 
    <!--
-      <audio controls autoplay loop>
-            <source src="/vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg">
-            <audio src="Tetris.mp3" preload="auto">
-        </audio>
     <script>
         var playerName = prompt("Please enter your name", "<name>");
             if (playerName!= null) {
