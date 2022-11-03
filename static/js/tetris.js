@@ -42,7 +42,7 @@ var shapeCell;
 var existField;
 var shapePoint;
 var createPoint=[1,parseInt(W/2)-2];
-var currentShape, nextShape, chagneshape;
+var currentShape, nextShape, changeshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
@@ -358,7 +358,8 @@ function pauseAudio() {
     x.pause();
     }
 
-var playerName = "";
+var arrayScoreboard = [];
+
 
 // pause or end
 function gameOver(){
@@ -369,7 +370,6 @@ function gameOver(){
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
         playerName = window.prompt("Enter Name");
-        alert("here");
     }
     isQuit = true;
 }
