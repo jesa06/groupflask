@@ -46,6 +46,7 @@ var currentShape, nextShape, changeshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
+var cntPlayer = 0;
 
 init();
 
@@ -358,8 +359,8 @@ function pauseAudio() {
     x.pause();
     }
 
-var arrayScoreboard = [];
 
+var arrayScoreboard = [];
 
 // pause or end
 function gameOver(){
@@ -370,6 +371,8 @@ function gameOver(){
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
         playerName = window.prompt("Enter Name");
+        arrayScoreboard[cntPlayer] = {name: playerName, pscore: score};
+        alert(arrayScoreboard[cntPlayer].name);
     }
     isQuit = true;
 }
