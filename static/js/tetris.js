@@ -78,7 +78,6 @@ function keyDownEventHandler(e){
         case 32: setTimeout("rotateShape()",0); break;  // Space
         case 40: moveFast(); break;                     // Down Arrow
         case 80: pause(); break;   // P
-        case 82: pause(); break;   // r
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -370,20 +369,8 @@ function changeShape(){
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
-var x = document.getElementById("audio");
-function playAudio() {
-    x.play();
-    }
-function pauseAudio() {
-    x.pause();
-    }
-
-
-var arrayScoreboard = [];
-
 // pause or end
 function gameOver(){
-    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
@@ -402,14 +389,12 @@ function gameOver(){
 function pause(){
     if(!isQuit) {
         if(isPaused){
-            playAudio();
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
-            pauseAudio();
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
