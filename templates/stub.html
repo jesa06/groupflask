@@ -156,9 +156,12 @@
     }
 
     function display_array() {
+/*
         arrayScoreboard.sort(function(a, b) {
             return ((a.score > b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
         });
+*/        
+        arrayScoreboard.sort(function(a, b) {b.score - a.score});
 
         for (var i = 0; i<arrayScoreboard.length; i++) {
             alert(arrayScoreboard[i].score + ", " + arrayScoreboard[i].name);
