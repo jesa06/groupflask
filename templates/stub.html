@@ -144,7 +144,7 @@
         var playerName = document.getElementById("name").value; 
         var playerScore = document.getElementById("score").value; 
 
-        arrayScoreboard[x] = {score: playerScore, name: playerName};
+        arrayScoreboard[x] = {name: playerName, score: playerScore};
 
 //        alert("Player Name: " + arrayScoreboard[x].name + " Added to the scoreboard");
 //        alert("Score: " + arrayScoreboard[x].score + " Added to the scoreboard");
@@ -157,7 +157,7 @@
 
     function display_array() {
         arrayScoreboard.sort(function(a, b) {
-            return ((a.name > b.name) ? -1 : ((a.name == b.name) ? 0 : 1));
+            return ((a.score > b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
         });
 
         for (var i = 0; i<arrayScoreboard.length; i++) {
