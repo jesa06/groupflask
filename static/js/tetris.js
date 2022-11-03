@@ -181,7 +181,7 @@ function initNextTable(){
 //  adjust figure
 function moveDown(){
     if(!canMove(1,0)){
-        commitExist();
+        commitExist(); 
         checkLine();
         shapeCell=[];
         createShape();
@@ -360,7 +360,6 @@ function pauseAudio() {
 
 // pause or end
 function gameOver(){
-    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
