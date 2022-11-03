@@ -38,9 +38,9 @@ Returns:
     String: API response
 """   
 def getCovidAPI():
-    global covid_data  # the covid_data global is preserved between calls to function
-    try: covid_data
-    except: covid_data = None
+    global quote_data  # the quote_data global is preserved between calls to function
+    try: quote_data
+    except: quote_data = None
 
     """
     Preserve Service usage / speed time with a Reasonable refresh delay
@@ -50,17 +50,19 @@ def getCovidAPI():
         RapidAPI is the world's largest API Marketplace. 
         Developers use Rapid API to discover and connect to thousands of APIs. 
         """
-        url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
+        url = "https://famous-quotes4.p.rapidapi.com/random"
+
+        querystring = {"category":"all","count":"2"}
 
         headers = {
 	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
-	        "X-RapidAPI-Host": "corona-virus-world-and-india-data.p.rapidapi.com"
+	        "X-RapidAPI-Host": "famous-quotes4.p.rapidapi.com"
         }
-        
-        response = requests.request("GET", url, headers=headers)
-        covid_data = response
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        quote_data = response
     else:  # Request Covid Data
-        response = covid_data
+        response = quote_data
 
     return response
 
@@ -73,9 +75,9 @@ def getCountry(filter):
     # Request Covid Data
     response = getCovidAPI()
     # Look for Country    
-    countries = response.json().get('countries_stat')
-    for country in countries:  # countries is a list
-        if country["country_name"].lower() == filter.lower():  # this filters for country
+    #countries = response.json().get('countries_stat')
+    for country in 2:  # countries is a list
+        if country["text"].lower() == filter.lower():  # this filters for country
             return country
     
     return {"message": filter + " not found"}
@@ -121,9 +123,3 @@ if __name__ == "__main__":
     print("-"*30)
 
     # This code looks for USA in "countries_stats"
-    country = getCountry("USA")
-    print("USA Totals")
-    for key, value in country.items():
-        print(key, value)
-        
-    print("-"*30)
