@@ -380,6 +380,13 @@ function gameOver(){
     isQuit = true;
 }
 function pause(){
+    var x = document.getElementById("audio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio() {
+        x.pause();
+    }
     if(!isQuit) {
         if(isPaused){
             pauseAudio();
