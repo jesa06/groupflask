@@ -156,16 +156,12 @@
     
     function display_array() {
         var e = "<table>";  
-        alert(e);
         e += "<tr><td>Player</td><td>Score</td></tr>";
-        alert(e);
 
         for (var x=0; x<arrayName.length; x++) {
             e += "<tr><td>" + arrayName[x] + "</td><td>" + arrayScore[x] + "</td></tr>";
-            alert(e);
         }
         e += "</table>";
-        alert(e);
         
         document.getElementById("Result").innerHTML = e;
     }
@@ -173,6 +169,16 @@
 
 <html>
     <head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            th, td {
+                padding: 15px;
+                border: 1px solid black;
+            }
+
+        </style>
     <meta charset=utf-8 />
     <title>Tetris Scoreboard</title>
     <style>
