@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            
+            const settings = {
+        	    "async": true,
+	            "crossDomain": true,
+	            "url": "https://corona-virus-world-and-india-data.p.rapidapi.com/api",
+	            "method": "GET",
+	            "headers": {
+		            "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
+		            "X-RapidAPI-Host": "corona-virus-world-and-india-data.p.rapidapi.com"
+	            }
+            };
+            
+            $.ajax(settings).done(function (response) {
+	            console.log(response);
+            });
+            document.write("Hello1");
+        </script>
+    </head>
+</html>

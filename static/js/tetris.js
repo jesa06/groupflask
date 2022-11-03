@@ -1,4 +1,22 @@
 var H=34, W=20; // field size
+const quotes = [
+    {quotation: "“If you don't make mistakes, you're not working on hard enough problems. And that's a mistake.”", 
+    author: "― Frank Wilczek"
+    },
+    {quotation: "“It does not matter how slowly you go as long as you do not stop.”",
+    author: "-Confucius"
+    },
+    { quotation: "Only I can change my life. No one can do it for me.”",
+    author: "-Carol Burnett"
+    }
+];
+function getRandomQuote() {
+    let random = quotes[Math.floor(Math.random() * quotes.length)];
+    quotation.innerText = random.quotation;
+    author.innerText = random.author;
+    return random;
+}
+  
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
     [[1,1],[1,0],[0,2],[0,1]],
