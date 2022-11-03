@@ -366,6 +366,7 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
+        window.prompt("Enter Name");
     }
     isQuit = true;
 }
