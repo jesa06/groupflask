@@ -297,7 +297,6 @@ function checkLine(){
             removeLine(i);
             i++;
             finalScore += updateScore(plusScore,++combo);
-            playerFinalScore += finalScore;
         }
         if(combo > 0) displayCombo(combo, finalScore);
     }
@@ -376,7 +375,7 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
-        playerName = window.prompt("Enter Name");
+        window.prompt("Enter Name");
     }
     isQuit = true;
 }
