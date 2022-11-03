@@ -56,7 +56,8 @@
                     </center>
                 </div>
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
-                <script>function myFunction() {
+                <script>
+                function myFunction() {
                     if(!isPaused){
                         gameOver();
                     }
@@ -69,9 +70,28 @@
                     alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
                 }
                 </script>
-                <audio id="player" autoplay controls loop>
+                
+                <audio id="audio" autoplay hidden controls loop>
                     <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
+                
+                <script>
+                    var x = document.getElementById("audio");
+                    function playAudio() {
+                        x.play();
+                        }
+                    function pauseAudio() {
+                        x.pause();
+                        }
+                    if(!isPaused){
+                        playAudio();
+                        }
+                    if(isPaused) {
+                        pauseAudio()
+                        }
+
+        
+                </script>
             </body>
        
     </html>
