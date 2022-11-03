@@ -134,26 +134,36 @@
         <title>Scoreboard</title>
         <link type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
     </head>
-    
+
    <script>
+
     var x = 0;
-    var array = Array();
+    var arrayName = Array();
+    var arrayScore = Array();
     
     function add_element_to_array(){
-     array[x] = document.getElementById("text1").value;
-     alert("Player Name: " + array[x] + " Added to the scoreboard" );
-     x++;
-     document.getElementById("text1").value = "";
+        arrayName[x] = document.getElementById("name").value; //array [x] is name or input
+        alert("Player Name: " + arrayName[x] + " Added to the scoreboard");
+
+        arrayScore[x] = document.getElementById("score").value; //array [y] is score
+        alert("Score: " + arrayScore[x] + "Added to the scoreboard");
+
+        x++;
+
+        document.getElementById("name").value = "";
+        document.getElementById("score").value = "";
     }
     
-    function display_array(){
-       var e = "<hr/>";   
+    function display_array() {
+        var e = "<table>";  
+        e += "<tr><td>Player</td><td>Score</td></tr>";
+
+        for (var y=0; y<array.length; y++) {
+            e += "<tr><td> Player " + arrayName[x] + " Score: " + arrayScore[x] + "<br/>";
+        }
+        e += "</table>";
         
-       for (var y=0; y<array.length; y++)
-       {
-         e += "Player " + array[y] + " Score: " +  "<br/>";
-       }
-       document.getElementById("Result").innerHTML = e;
+        document.getElementById("Result").innerHTML = e;
     }
     </script>
 
@@ -166,7 +176,8 @@
     </style> 
     </head>
     <body>
-    <input type="text" id="text1"></input>
+    <input type="text" id="name"></input>
+    <input type="text" id="score"></input>
     <input type="button" id="button1" value="Enter" onclick="add_element_to_array();"></input>
     <input type="button" id="button2" value="View Scoreboard" onclick="display_array();"></input>
     <div id="Result"></div> 
