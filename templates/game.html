@@ -11,7 +11,7 @@
     <!DOCTYPE html>
     <html>
         <head>
-            <meta charset="utf-8">
+            <a charset="utf-8">
             <title>Tetris</title>
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
         </head>
@@ -58,32 +58,32 @@
                     </center>
                 </div>
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
-                <script>function myFunction() {
-                    if(!isPaused){
-                        gameOver();
-                    }
-                    if(isPaused) {
-                        alert("you cannot end the game on the pause screen");
-                    }
-                } 
+                <script>
+                    function myFunction() {
+                        if(!isPaused){
+                            gameOver();
+                        }
+                        if(isPaused) {
+                            alert("you cannot end the game on the pause screen");
+                        }
+                    } 
                 </script>
-                <script>function helpFunction() {
-                    alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
-                }
+                <script>
+                    function helpFunction() {
+                        alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
+                    }
                 </script>
-                <audio id="player" autoplay controls loop>
+                
+                <audio id="audio" autoplay hidden controls loop>
                     <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
+                
             </body>
 
        
     </html>
 
    <!--
-      <audio controls autoplay loop>
-            <source src="/vscode/groupflask/static/assets/Tetris.mp3" type="audio/mpeg">
-            <audio src="Tetris.mp3" preload="auto">
-        </audio>
     <script>
         var playerName = prompt("Please enter your name", "<name>");
             if (playerName!= null) {

@@ -37,7 +37,7 @@ var movingThread, movingSpeed;
 var fastMode = false;
 var initSpeed = 500,
     deltaSpeed = 40,
-    fastSpeed = 25;
+    fastSpeed = 35;
 var shapeCell;
 var existField;
 var shapePoint;
@@ -46,7 +46,7 @@ var currentShape, nextShape, chagneshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
-var ChangecurrentColorIndex, ChangecurrentShape;
+
 init();
 
 // key 
@@ -330,8 +330,8 @@ function changeShape(){
     }
     shapeColor = shapeColorArray[currentColorIndex];
     var shape = shapeArray[currentShape];
-    var shape = shapeArray[changesphape];
-    var color = shapeColorArray[nextColorIndex-1];
+    var shape = shapeArray[changeshape];
+    var color = shapeColorArray[nextColorIndex];
     for(var i=0;i<shape.length;i++){
         var sy = shapePoint[0]+shape[i][0];
         var sx = shapePoint[1]+shape[i][1];
@@ -347,8 +347,17 @@ function changeShape(){
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
+var x = document.getElementById("audio");
+function playAudio() {
+    x.play();
+    }
+function pauseAudio() {
+    x.pause();
+    }
+
 // pause or end
 function gameOver(){
+    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
@@ -362,12 +371,14 @@ function gameOver(){
 function pause(){
     if(!isQuit) {
         if(isPaused){
+            playAudio();
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
+            pauseAudio();
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
@@ -376,7 +387,10 @@ function pause(){
         }
     }
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 75dbecbb6361689176384f07c8562bb0018fd8ee
