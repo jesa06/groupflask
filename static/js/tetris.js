@@ -354,6 +354,7 @@ function gameOver(){
     document.getElementById("gameover").style.visibility = "visible";
     initExistField();
     if (!isQuit) {
+        alert("www");
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
         window.prompt("Enter your name");
     }
