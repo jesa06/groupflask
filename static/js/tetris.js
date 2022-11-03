@@ -372,7 +372,8 @@ function gameOver(){
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
         playerName = window.prompt("Enter Name");
         arrayScoreboard[cntPlayer] = {name: playerName, pscore: score};
-        alert(arrayScoreboard[cntPlayer].pscore);
+        //alert(arrayScoreboard[cntPlayer].pscore);
+        cntPlayer++;
     }
     isQuit = true;
 }
