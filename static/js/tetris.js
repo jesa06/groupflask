@@ -64,7 +64,6 @@ var currentShape, nextShape, changeshape;
 var score, level, levelStack=0;
 var isPaused = false;
 var isQuit = false;
-var cntPlayer = 0;
 
 init();
 
@@ -78,7 +77,6 @@ function keyDownEventHandler(e){
         case 32: setTimeout("rotateShape()",0); break;  // Space
         case 40: moveFast(); break;                     // Down Arrow
         case 80: pause(); break;   // P
-        case 82: pause(); break;   // r
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -299,7 +297,6 @@ function checkLine(){
             removeLine(i);
             i++;
             finalScore += updateScore(plusScore,++combo);
-            playerFinalScore += finalScore;
         }
         if(combo > 0) displayCombo(combo, finalScore);
     }
@@ -370,39 +367,51 @@ function changeShape(){
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
+<<<<<<< HEAD
 
 
 var arrayScoreboard = [];
 
+=======
+>>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
 // pause or end
 function gameOver(){
-    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
-        playerName = window.prompt("Enter Name");
-        arrayScoreboard[cntPlayer] = {name: playerName, pscore: score};
-        //alert(arrayScoreboard[cntPlayer].pscore);
-        cntPlayer++;
+        window.prompt("Enter Name");
     }
     isQuit = true;
-
-    alert(cntPlayer);
 }
 function pause(){
+    var x = document.getElementById("audio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio() {
+        x.pause();
+    }
     if(!isQuit) {
         if(isPaused){
+<<<<<<< HEAD
             
+=======
+            pauseAudio();
+>>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
+<<<<<<< HEAD
             
+=======
+            playAudio();
+>>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
