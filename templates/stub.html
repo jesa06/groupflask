@@ -161,7 +161,7 @@
             return ((a.score > b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
         });
 */        
-        arrayScoreboard.sort(function(a, b) {b.score - a.score});
+        arrayScoreboard.sort(function(a, b) {a.score - b.score});
 
         for (var i = 0; i<arrayScoreboard.length; i++) {
             alert(arrayScoreboard[i].score + ", " + arrayScoreboard[i].name);
