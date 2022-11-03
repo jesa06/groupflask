@@ -217,11 +217,57 @@
 
                     //} 
                 </script>
+                <!--output of scoreboard-->
+                <html>
+                    <head>
+                        <style>
+                            table, th, td {
+                              border: 1px solid black;
+                            }
+                            th, td {
+                                padding: 15px;
+                                border: 1px solid black;
+                            }
+                
+                        </style>
+                    <meta charset=utf-8 />
+                    <title>Tetris Scoreboard</title>
+                    <style>
+                    body {padding-top:50px} 
+                    </style> 
+                    </head>
+                    <body>
+                    <input type="text" id="name"></input>
+                    <input type="text" id="score"></input>
+                    <input type="button" id="button1" value="Enter" onclick="add_element_to_array();"></input>
+                    <input type="button" id="button2" value="View Scoreboard" onclick="display_array();"></input>
+                    <div id="Result"></div> 
+                    </body>
+                </html>
+<<<<<<< HEAD
+=======
+
+                <script>
+                    var arrayScoreboard = [];
+
+                    var x = document.getElementById("audio");
+                    function playAudio() {
+                        x.play();
+                    }
+                    function pauseAudio() {
+                        x.pause();
+                    }
+                    
+
+                </script>
+
+>>>>>>> cd19c75 (keycode)
                 <audio id="audio" autoplay hidden controls loop>
                     <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                 </audio>
                 
             </body>
+
 <!--< !!!!!JUSTIN API BACKUP CODE!!!! <script>function api() {const options = {
 	method: 'GET',
 	headers: {
