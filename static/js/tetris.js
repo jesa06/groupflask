@@ -377,3 +377,6 @@ function pause(){
     }
 }
 
+
+
+
