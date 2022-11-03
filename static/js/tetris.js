@@ -369,9 +369,9 @@ function gameOver(){
     isQuit = true;
 }
 function pause(){
-    pauseAudio();
     if(!isQuit) {
         if(isPaused){
+            pauseAudio();
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
