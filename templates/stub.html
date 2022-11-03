@@ -138,9 +138,8 @@
    <script>
 
     var x = 0;
-    var arrayName = Array();
+    /* var arrayName = Array();
     var arrayScore = Array();
-    
     function add_element_to_array(){
         arrayName[x] = document.getElementById("name").value; //array [x] is name or input
         alert("Player Name: " + arrayName[x] + " Added to the scoreboard");
@@ -152,8 +151,39 @@
 
         document.getElementById("name").value = "";
         document.getElementById("score").value = "";
+
+        arrayName.sort(function(a, b){return b - a});
+
     }
+    function display_array() {
+        var e = "<table>";  
+        e += "<tr><td>Player</td><td>Score</td></tr>";
+
+        for (var x=0; x<arrayName.length; x++) {
+            e += "<tr><td>" + arrayName[x] + "</td><td>" + arrayScore[x] + "</td></tr>";
+        }
+        e += "</table>";
+        
+        document.getElementById("Result").innerHTML = e;
+    } */
+
     
+    var arrayScoreboard = [];
+    function add_element_to_array(){
+        var playerName = document.getElementById("name").value; 
+        var playerScore = document.getElementById("score").value; 
+
+        arrayScoreboard[x] = {name: playerName, score: playerScore};
+
+        alert("Player Name: " + arrayScoreboard[x].name + " Added to the scoreboard");
+        alert("Score: " + arrayScoreboard[x].score + " Added to the scoreboard");
+
+        x++;
+
+        document.getElementById("name").value = "";
+        document.getElementById("score").value = "";
+    }
+
     function display_array() {
         var e = "<table>";  
         e += "<tr><td>Player</td><td>Score</td></tr>";
@@ -165,6 +195,10 @@
         
         document.getElementById("Result").innerHTML = e;
     }
+
+
+
+
     </script>
 
 <html>
