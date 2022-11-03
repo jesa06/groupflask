@@ -371,14 +371,14 @@ function gameOver(){
 function pause(){
     if(!isQuit) {
         if(isPaused){
-            pauseAudio();
+            playAudio();
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
-            playAudio();
+            pauseAudio();
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
