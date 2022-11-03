@@ -3,8 +3,8 @@ body{
 }
 td{
     border: 2px solid #372c25;
-    width: 17px;
-    height: 17px;
+    width: 14px;
+    height: 14px;
 }
 #gameField{
     margin-left: 20px;
@@ -44,8 +44,8 @@ td{
     float: middle;
     margin: 0px;
     position: absolute;
-    left: 380px;
-    top: 338px;
+    left: 480px;
+    top: 500px;
 }
 #help{
     font-size: 12px;
