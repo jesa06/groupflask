@@ -316,6 +316,39 @@ function displayCombo(combo, finalScore){
     setTimeout(function(){document.getElementById("comboField").innerHTML = "";},700);
 }
 
+/* var x = 0;
+var array = Array();
+    
+function add_score_to_array()
+    {
+     array[x] = document.getElementById("text1").value;
+     alert("Player Name: " + array[x] + " Added to the scoreboard" );
+     x++;
+     document.getElementById("text1").value = "";
+    }
+    
+function display_array()
+    {
+       var e = "<hr/>";   
+        
+       for (var y=0; y<array.length; y++)
+       {
+         e += "Player " + array[y] + " Score: " +  "<br/>";
+       }
+       document.getElementById("Result").innerHTML = e;
+    }
+
+let Scoreboard = {
+        name: x,
+        score: comboScore
+    }
+
+    function Scoreboard(){
+        const comboScore = [];
+        comboScore.sort(function(a, b){return b - a});
+
+    } */
+
 function changeShape(){
     removeShape();
     shapeCell = [];
