@@ -60,6 +60,7 @@ function keyDownEventHandler(e){
         case 32: setTimeout("rotateShape()",0); break;  // Space
         case 40: moveFast(); break;                     // Down Arrow
         case 80: pause(); break;   // P
+        case 82: pause(); break;   // r
     }
 }
 document.onkeyup = keyUpEventHandler;
@@ -364,6 +365,7 @@ var arrayScoreboard = [];
 
 // pause or end
 function gameOver(){
+    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
@@ -376,6 +378,8 @@ function gameOver(){
         cntPlayer++;
     }
     isQuit = true;
+
+    alert(cntPlayer);
 }
 function pause(){
     if(!isQuit) {
