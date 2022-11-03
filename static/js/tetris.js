@@ -360,6 +360,7 @@ function pauseAudio() {
 
 // pause or end
 function gameOver(){
+    pauseAudio();
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
