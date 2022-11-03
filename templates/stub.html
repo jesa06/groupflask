@@ -185,13 +185,23 @@
     }
 
     function display_array() {
-        var e = "<table>";  
+        arrayScoreboard.sort(function(a, b) {
+            return ((a.score < b.score) ? -1 : ((a.score == b.score) ? 0 : 1));
+        });
+
+        for (var i = 0; i<arrayScoreboard.length; i++) {
+            alert(arrayScoreboard[i].score + ", " + arrayScoreboard[i].name);
+        }
+
+        alert(arrayScoreboard);
+
+        /* var e = "<table>";  
         e += "<tr><td>Player</td><td>Score</td></tr>";
 
         for (var x=0; x<arrayName.length; x++) {
             e += "<tr><td>" + arrayName[x] + "</td><td>" + arrayScore[x] + "</td></tr>";
         }
-        e += "</table>";
+        e += "</table>"; */
         
         document.getElementById("Result").innerHTML = e;
     }
