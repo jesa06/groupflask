@@ -268,6 +268,8 @@ function commitExist(){
         existField[y][x]=true;
     }
 }
+
+
 function checkLine(){
     var plusScore = level * 100;
     var combo = 0;
@@ -277,6 +279,7 @@ function checkLine(){
             removeLine(i);
             i++;
             finalScore += updateScore(plusScore,++combo);
+            playerFinalScore += finalScore;
         }
         if(combo > 0) displayCombo(combo, finalScore);
     }
@@ -364,7 +367,6 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter your name");
     }
     isQuit = true;
 }
