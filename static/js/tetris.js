@@ -358,6 +358,8 @@ function pauseAudio() {
     x.pause();
     }
 
+var playerName = "";
+
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
@@ -366,7 +368,8 @@ function gameOver(){
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
-        window.prompt("Enter Name");
+        playerName = window.prompt("Enter Name");
+        alert("here");
     }
     isQuit = true;
 }
