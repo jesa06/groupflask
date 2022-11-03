@@ -98,15 +98,25 @@
                     function pauseAudio() {
                         x.pause();
                     }
-                    if (isPaused)  {
-                        isPaused = false;
-                        pauseAudio();
+                    function pause(){
+                        if(!isQuit) {
+                            if(isPaused){
+                                movingThread = setTimeout("moveDown()",movingSpeed);
+                                document.getElementById("pause").style.visibility = "hidden";
+                                document.getElementById("gameField").style.visibility = "visible";
+                                pauseAudio();
+                                isPaused = false;
+                            }
+                            else {
+                                clearTimeout(movingThread);
+                                document.getElementById("gameField").style.visibility = "hidden";
+                                document.getElementById("gameover").style.visibility = "hidden";
+                                document.getElementById("pause").style.visibility = "visible";
+                                playAudio();
+                                isPaused = true;
+                            }
+                        }
                     }
-                    else {
-                        isPaused = true;
-                        playAudio();
-                    }
-                
 
                 </script>
 
