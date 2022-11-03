@@ -10,7 +10,6 @@ from covid import covid_api
 app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
 app.register_blueprint(covid_api)
-
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
@@ -35,7 +34,7 @@ def Tetris():
 @app.route('/game/')
 def game():
     return render_template("game.html")
-    
+
 @app.route('/test/')
 def test():
     return render_template("test.html")
