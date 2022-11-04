@@ -72,116 +72,102 @@
                         alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!");
                     }
                 </script>
-                <table id = "apitable" border = 0>
-                    <thead>
-                    <tr>
-                      <th>Time</th>
-                      <th>All-time Cases</th>
-                      <th>Recorded Deaths</th>
-                      <th>Active Cases</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                      <td id="time"></td>
-                      <td id="total_cases"></td>
-                      <td id="total_deaths"></td>
-                      <td id="active_cases"></td>
-                    </tbody>
-                  </table>
-                  
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>Country</th>
-                      <th>All-time Cases</th>
-                      <th>Recorded Deaths</th>
-                      <th>Active Cases</th>
-                    </tr>
-                    </thead>
-                    <tbody id="result">
-                      <!-- generated rows -->
-                    </tbody>
-                  </table>
-                  
-                  <!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
+                
                 <script>
-                    // prepare HTML result container for new output
-                    const resultContainer = document.getElementById("result");
-                  
+                     const resultContainer = document.getElementById("astronomy");
+
+                    //clear contents of astronomy table
+                    resultContainer.innerHTML = "";
+
+                    //alert("1: " + resultContainer);
+
                     // prepare fetch options
-                    const url = "https://spring.nighthawkcodingsociety.com/api/covid/daily";
-                  
-                    const options = {
+                    const url = "https://weatherapi-com.p.rapidapi.com/astronomy.json?q=" + city; 
+                                    
+                        
+                    const headers = {
                         method: 'GET', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors', // no-cors, *cors, same-origin
                         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
                         credentials: 'omit', // include, *same-origin, omit
                         headers: {
-                            'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                            'Content-Type': 'application/json',
+                            'X-RapidAPI-Key': '0b6ef107f7msh5606de624633ceap17521ejsn27566d20ff5b',
+                            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
                         },
                     };
-                  
+
+
+
                     // fetch the API
-                    fetch(url, options)
-                      // response is a RESTful "promise" on any successful fetch
-                        .then(response => {
-                            // check for response errors
-                            if (response.status !== 200) {
-                
-                                const errorMsg = 'Database response error: ' + response.status;
-                                console.log(errorMsg);
-                                const tr = document.createElement("tr");
-                                const td = document.createElement("td");
-                                td.innerHTML = errorMsg;
-                                tr.appendChild(td);
-                                resultContainer.appendChild(tr);
-                
-                                return;
-                            }
-                            // valid response will have json data
-                            response.json().then(data => {
-                                console.log(data);
-                                console.log(data.world_total)
-                  
+                    fetch(url, headers)
+                    // response is a RESTful "promise" on any successful fetch
+                    .then(response => {
+                        // check for response errors
+                        if (response.status !== 200) {
+
+                            const errorMsg = 'Database response error: ' + response.status;
+                            console.log(errorMsg);
+                            const tr = document.createElement("tr");
+                            const td = document.createElement("td");
+                            td.innerHTML = errorMsg;
+                            tr.appendChild(td);
+                            resultContainer.appendChild(tr);
+
+                            return;
+                        }
+                        // valid response will have json data
+                        response.json().then(data => {
+                            console.log(data);
+                            console.log(data.location)
+
                             // World Data
-                                document.getElementById("time").innerHTML = data.world_total.statistic_taken_at;
-                                document.getElementById("total_cases").innerHTML = data.world_total.total_cases;
-                                document.getElementById("total_deaths").innerHTML = data.world_total.total_deaths;
-                                document.getElementById("active_cases").innerHTML = data.world_total.active_cases;
-                  
-                            // Country data
-                                for (const row of data.countries_stat) {
-                                    console.log(row);
-                  
-                              // tr for each row
-                                    const tr = document.createElement("tr");
-                              // td for each column
-                                    const name = document.createElement("td");
-                                    const cases = document.createElement("td");
-                                    //const deaths = document.createElement("td");
-                                    //const active = document.createElement("td");
-                  
-                              // data is specific to the API
-                                    name.innerHTML = row.author;
-                                    cases.innerHTML = row.text; 
-                              // this build td's into tr
-                                    tr.appendChild(name);
-                                    tr.appendChild(cases);
-                                    //tr.appendChild(deaths);
-                                    //tr.appendChild(active);
-                  
-                              // add HTML to container
-                                    resultContainer.appendChild(tr);
-                                }
-                            })
+                            document.getElementById("name").innerHTML = data.location.name;
+                            document.getElementById("region").innerHTML = data.location.region;
+                            document.getElementById("country").innerHTML = data.location.country;
+                            document.getElementById("lat").innerHTML = data.location.lat;
+                            document.getElementById("lon").innerHTML = data.location.lon;
+                            document.getElementById("tz_id").innerHTML = data.location.tz_id;
+                            document.getElementById("localtime_epoch").innerHTML = data.location.localtime_epoch;
+                            document.getElementById("localtime").innerHTML = data.location.localtime;
+
+                            //alert("data.astronomy" + data.astronomy.astro.sunrise);
+                            // tr for each row
+                            const tr = document.createElement("tr");
+
+                            // td for each column
+                            const sunrise = document.createElement("td");
+                            const sunset = document.createElement("td");
+                            const moonrise = document.createElement("td");
+                            const moonset = document.createElement("td");
+                            const moon_phase = document.createElement("td");
+                            const moon_illumination = document.createElement("td");
+
+                            // data is specific to the API
+                            sunrise.innerHTML = data.astronomy.astro.sunrise;
+                            sunset.innerHTML = data.astronomy.astro.sunset; 
+                            moonrise.innerHTML = data.astronomy.astro.moonrise; 
+                            moonset.innerHTML = data.astronomy.astro.moonset; 
+                            moon_phase.innerHTML = data.astronomy.astro.moon_phase; 
+                            moon_illumination.innerHTML = data.astronomy.astro.moon_illumination; 
+
+                            // this builds td's into tr
+                            tr.appendChild(sunrise);
+                            tr.appendChild(sunset);
+                            tr.appendChild(moonrise);
+                            tr.appendChild(moonset);
+                            tr.appendChild(moon_phase);
+                            tr.appendChild(moon_illumination);
+
+                            // add HTML to container
+                            resultContainer.appendChild(tr);
                         })
+                    })
+
+
+                    </script>
                 
-                //alert("4: post fetch");
-            
                 
-                
-                </script>
 
                 <center>
                 <body>
