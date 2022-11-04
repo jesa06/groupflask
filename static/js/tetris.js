@@ -313,6 +313,7 @@ function updateScore(plusScore,combo){
     var comboScore = plusScore * combo;
     score += comboScore;
     document.getElementById("score").innerHTML = score;
+    getRandomJoke();
     return comboScore;
 }
 function displayCombo(combo, finalScore){
