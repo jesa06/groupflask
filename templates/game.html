@@ -73,7 +73,110 @@
                     }
                 </script>
                 
+
                     
+
+            
+
+                <center>
+                <body>
+                    <h1 text-align: right style="color:white">City Astronomy and Location API</h1>                
+                <!-- HTML table fragment for page -->
+                </center>
+                                        
+                
+                <label style="color:white" for="city">Enter city name:</label>
+                <input type="text" id="city" name="city">&nbsp;&nbsp;<input type="button" value="Get Location & Astronomy" onclick="testButtonClick(document.getElementById('city').value)">
+                <br><br>
+                
+                <center>
+                <table>
+                  <thead style="color:white">Location Details 
+                  <tr>
+                    <th style="color:white">City</th>
+                    <th style="color:white">Region</th>
+                    <th style="color:white">Country</th>
+                    <th style="color:white">Latitude</th>
+                    <th style="color:white">Longitude</th>
+                    <th style="color:white">Time Zone</th>
+                    <th style="color:white">Local Time Epoch</th>
+                    <th style="color:white">Local Date and Time</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <td style="color:white"id="name"></td>
+                    <td style="color:white" id="region"></td>
+                    <td style="color:white" id="country"></td>
+                    <td style="color:white"id="lat"></td>
+                    <td style="color:white" id="lon"></td>
+                    <td style="color:white" id="tz_id"></td>
+                    <td style="color:white" id="localtime_epoch"></td>
+                    <td style="color:white"id="localtime"></td>
+                  </tbody>
+                </table>
+                </center>               
+                
+                </center>
+                <table>
+                    <thead style="color:white">Astronomy Details
+                    <tr style="color:white">
+                        <th style="color:white">Sunrise</th>
+                        <th style="color:white">Sunset</th>
+                        <th style="color:white">Moonrise</th>
+                        <th style="color:white">Moonset</th>
+                        <th style="color:white">Moon Phase</th>
+                        <th style="color:white">Moon Illumination</th>
+                    </tr>
+                    </thead>
+                    <tbody style="color:white" id="astronomy">
+                        <!-- generated rows -->
+                    </tbody>
+                    <style>
+                        table, th, td {
+                        border: 1px solid rgb(236, 224, 224);
+                        padding: 10px;
+                        margin-left: 500px;
+                    }
+                    </style>
+                </center>
+                </table>    
+               
+                    
+                    <script>
+                        var x = 0;
+                        var array = Array();
+        
+                        function add_score_to_array(){
+                            array[x] = document.getElementById("text1").value;
+                            alert("Player Name: " + array[x] + " Added to the scoreboard" );
+                            x++;
+                            document.getElementById("text1").value = "";
+                        }
+        
+                        function display_array(){
+                            alert(playerFinalScore);
+                            var e = "<hr/>";   
+                            for (var y=0; y<array.length; y++)
+                            {
+                                e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
+                            }
+                            document.getElementById("Result").innerHTML = e;
+                        }
+
+
+                    </script>
+
+                    <script>
+                        var x = document.getElementById("audio");
+                        function playAudio() {
+                            x.play();
+                            }
+                        function pauseAudio() {
+                            x.pause();
+                            }
+                    </script>
+
+>>>>>>> f4adb3e8004c01c965c7cee3e39709f8a28a7962
                     <audio id="audio" autoplay hidden controls loop>
                         <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                     </audio>
