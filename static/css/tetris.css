@@ -6,19 +6,7 @@ td{
     width: 17px;
     height: 17px;
 }
-<<<<<<< HEAD
-#apitable {
-    float: right;
-    font-size: 12px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    height: 32px;
-    margin: 1px;
-}
-=======
 
->>>>>>> 921c2a5 (idk)
 #gameField{
     margin-left: 20px;
     margin-top: 20px;
@@ -53,8 +41,6 @@ td{
     position: absolute;
     left: 480px;
     top: 500px;
-    padding: 10px;
-
 }
 #help{
     font-size: 12px;
