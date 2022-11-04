@@ -6,15 +6,6 @@ td{
     width: 17px;
     height: 17px;
 }
-#apitable {
-    float: right;
-    font-size: 12px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    height: 32px;
-    margin: 1px;
-}
 #gameField{
     margin-left: 20px;
     margin-top: 20px;
@@ -23,7 +14,7 @@ td{
 #scoreField{
     float: right;
     background-color: rgb(14,31,49);
-    margin-top: 1.9px;
+    margin-top: 3px;
     margin-left: 3px;
     width: 100px;
 }
