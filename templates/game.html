@@ -15,12 +15,13 @@
             <title>Tetris</title>
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
         </head>
-        <center>
+
+    
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
             <!-- <button onclick="myFunction()">Click here to end the game</button>-->
             <button class="button button1" onclick="helpFunction()">How to play</button>
             <button class="button button2" onclick="api()">info</button>
-
+        
             <div id="gameField">
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
@@ -35,14 +36,13 @@
                         <h4>press 'F5' to restart</h4>
                     </center>
                 </div>
-                <table style="color:black" id="nextTable" border=0> 
+                <table id="nextTable" border=0> 
                     <tr><td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td></tr>
                     <tr><td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td></tr>
                     <tr><td id="20"></td><td id="21"></td><td id="22"></td><td id="23"></td></tr>
                     <tr><td id="30"></td><td id="31"></td><td id="32"></td><td id="33"></td></tr>
                 </table>
                 <div id="scoreField">
-                    <center>
                     <p class="sub">LEVEL</p>
                     <p id="level">1</p>
                     <p class="sub">SCORE</p>
@@ -55,9 +55,8 @@
                     <p id="help">'P' to pause</p>
                     <p id="help">'q' to change shape</p>
                     <div id="comboField"><i></i></div>
-                    </center>
                 </div>
-                </center>
+                
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
                 <script>
                     function myFunction() {
@@ -187,14 +186,10 @@
 
                 <center>
                 <body>
-                
-                <h1 style="color:white">City Astronomy and Location API</h1>                
-                
+                    <h1 text-align: right style="color:white">City Astronomy and Location API</h1>                
                 <!-- HTML table fragment for page -->
-                
-                
-                <p style="color:white" If you choose a city, it will list out the location and astronomy details.></p>
-                            
+                </center>
+                                        
                 
                 <label style="color:white" for="city">Enter city name:</label>
                 <input type="text" id="city" name="city">&nbsp;&nbsp;<input type="button" value="Get Location & Astronomy" onclick="testButtonClick(document.getElementById('city').value)">
@@ -251,8 +246,8 @@
                     </style>
                 </center>
                 </table>    
-                </center>
-
+               
+                
                 <script>
                     var x = 0;
                     var array = Array();
