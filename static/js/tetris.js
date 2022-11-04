@@ -356,9 +356,17 @@ var arrayScoreboard = [];
 
 // pause or end
 function gameOver(){
+    var x = document.getElementById("audio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio() {
+        x.pause();
+    }
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    pauseAudio();
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
@@ -378,6 +386,7 @@ function pause(){
         if(isPaused){
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
+            playAudio();
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
@@ -386,6 +395,7 @@ function pause(){
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
             document.getElementById("pause").style.visibility = "visible";
+            pauseAudio();
             isPaused = true;
         }
     }
