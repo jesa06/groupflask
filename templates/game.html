@@ -69,11 +69,9 @@
                     } 
                
                     function helpFunction() {
-                        alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!")
+                        alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!");
                     }
                 </script>
-<<<<<<< HEAD
-=======
                 <table id = "apitable" border = 0>
                     <thead>
                     <tr>
@@ -182,11 +180,8 @@
                 //alert("4: post fetch");
             
                 
->>>>>>> 55f59c96f5d410f187c6b019371e4f1a81b4f33d
                 
-
-        
-
+                </script>
 
                 <center>
                 <body>
@@ -198,7 +193,7 @@
                 <label style="color:white" for="city">Enter city name:</label>
                 <input type="text" id="city" name="city">&nbsp;&nbsp;<input type="button" value="Get Location & Astronomy" onclick="testButtonClick(document.getElementById('city').value)">
                 <br><br>
-                </center>
+                
                 <center>
                 <table>
                   <thead style="color:white">Location Details 
@@ -226,7 +221,7 @@
                 </table>
                 </center>               
                 
-                <center>
+                </center>
                 <table>
                     <thead style="color:white">Astronomy Details
                     <tr style="color:white">
@@ -241,166 +236,44 @@
                     <tbody style="color:white" id="astronomy">
                         <!-- generated rows -->
                     </tbody>
-                    
-
+                    <style>
+                        table, th, td {
+                        border: 1px solid rgb(236, 224, 224);
+                        padding: 10px;
+                        margin-left: 500px;
+                    }
+                    </style>
+                </center>
                 </table>    
                
-                
-                <script>
-                    var x = 0;
-                    var array = Array();
-    
-                    function add_score_to_array(){
-                        array[x] = document.getElementById("text1").value;
-                        alert("Player Name: " + array[x] + " Added to the scoreboard" );
-                        x++;
-                        document.getElementById("text1").value = "";
-                    }
-    
-                    function display_array(){
-                        alert(playerFinalScore);
-                        var e = "<hr/>";   
-                        for (var y=0; y<array.length; y++)
-                        {
-                            e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
-                        }
-                        document.getElementById("Result").innerHTML = e;
-                    }
-
-                    //let Scoreboard = {
-                            //name: x,
-                            //score: comboScore
-                        //}
-
-                    //function Scoreboard(){
-                        //const finalScore = [];
-                        //finalScore.sort(function(a, b){return b - a});
-
-                    //} 
-                </script>
-                <!--output of scoreboard-->
-                <!-- <html>
-                    <head>
-                        <style>
-                            table, th, td {
-                              border: 1px solid black;
-                            }
-                            th, td {
-                                padding: 15px;
-                                border: 1px solid black;
-                            }
-                
-                        </style>
-                    <meta charset=utf-8 />
-                    <title>Tetris Scoreboard</title>
-                    <style>
-                    body {padding-top:50px} 
-                    </style> 
-                    </head>
-                    <body>
-                    <input type="text" id="name"></input>
-                    <input type="text" id="score"></input>
-                    <input type="button" id="button1" value="Enter" onclick="add_element_to_array();"></input>
-                    <input type="button" id="button2" value="View Scoreboard" onclick="display_array();"></input>
-                    <div id="Result"></div> 
-                    </body>
-                </html>
-
-                <script>
-                    var arrayScoreboard = [];
-
-                    var x = document.getElementById("audio");
-                    function playAudio() {
-                        x.play();
-                    }
-                    function pauseAudio() {
-                        x.pause();
-                    }
                     
-
-                </script>
-
-                <audio id="audio" autoplay hidden controls loop>
-                    <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
-                </audio>
-                
-            </body>
-
-<!-< !!!!!JUSTIN API BACKUP CODE!!!! <script>function api() {const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '6a13c0a609mshb8a55b62f42e6d0p15ec9ejsnaf557400ec31',
-		'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
-	}
-};
-
-fetch('https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=tetris&pageNumber=1&pageSize=10&autoCorrect=true', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-    document.getElementById("test").innerHTML = JSON.stringify(Array(10), null, 2);
-    
-
-
-}</script> -->
-
-
-       
-    </html>
-
-   <!--
-    <script>
-        var playerName = prompt("Please enter your name", "<name>");
-            if (playerName!= null) {
-         document.getElementById("welcome").innerHTML = "Hello " + customerName + "! How are you today?";
-
-            }
-         
-    </script> 
-    -->
-
-   <!-- <div class="px-5 py-5 mx-auto">Here we will start building!</div>
-    <head>
-        <title>Our Game</title>
-    </head>
-    <style>
-        .button {
-          border: none;
-          color: white;
-          padding: 15px 30px;
-          text-align: center;
-          text-decoration-style: darkviolet;
-          display: inline-table;
-          font-size: 26px;
-          margin: 6px 4px;
-          cursor: pointer;
-        }
-        .button1 {background-color: #790cb4;}
-        .button2 {background-color: #790cb4;} /* Purple */
-        .button3 {background-color: #790cb4;}
-    </style>        
-      <body>
-        <button class="button button2">Play</button>
-        <button class="button button1" onclick="myFunction()">How to play</button>
-        <button class="button button3" onclick="Scoreboard()">View Scoreboard</button>
-        <p id="play"></p>
-        <div id="rules">
-            Use up arrow to rotate the block. Use left and right arrow to move the block horizontally. Use the down arrow to speed up the drop of the block. Use the space block to hard drop the block all the way down.
-            </div>
-        <script>
-            function myFunction() {
-                document.getElementById("rules").innerHTML = "Use up arrow to rotate the block. Use left and right arrow to move the block horizontally. Use the down arrow to speed up the drop of the block. Use the space block to hard drop the block all the way down.";
-                var x = document.getElementById("rules");
-                    if (x.style.display === "none") {
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
-                    }
-            }
+                    <script>
+                        var x = 0;
+                        var array = Array();
         
-        </script>
+                        function add_score_to_array(){
+                            array[x] = document.getElementById("text1").value;
+                            alert("Player Name: " + array[x] + " Added to the scoreboard" );
+                            x++;
+                            document.getElementById("text1").value = "";
+                        }
+        
+                        function display_array(){
+                            alert(playerFinalScore);
+                            var e = "<hr/>";   
+                            for (var y=0; y<array.length; y++)
+                            {
+                                e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
+                            }
+                            document.getElementById("Result").innerHTML = e;
+                        }
 
-      </body> -->
+                    </script>
+                
+                    
+      
+
+      
 
     
 {% endblock %} 
