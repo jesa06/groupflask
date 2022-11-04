@@ -355,9 +355,17 @@ var arrayScoreboard = [];
 
 // pause or end
 function gameOver(){
+    var x = document.getElementById("audio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio() {
+        x.pause();
+    }
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
+    pauseAudio();
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
