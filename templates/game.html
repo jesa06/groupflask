@@ -73,10 +73,102 @@
                     }
                 </script>
                 
+                <script>
+                     const resultContainer = document.getElementById("astronomy");
 
-                    
+                    //clear contents of astronomy table
+                    resultContainer.innerHTML = "";
 
-            
+                    //alert("1: " + resultContainer);
+
+                    // prepare fetch options
+                    const url = "https://weatherapi-com.p.rapidapi.com/astronomy.json?q=" + city; 
+                                    
+                        
+                    const headers = {
+                        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'cors', // no-cors, *cors, same-origin
+                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: 'omit', // include, *same-origin, omit
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-RapidAPI-Key': '0b6ef107f7msh5606de624633ceap17521ejsn27566d20ff5b',
+                            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+                        },
+                    };
+
+
+
+                    // fetch the API
+                    fetch(url, headers)
+                    // response is a RESTful "promise" on any successful fetch
+                    .then(response => {
+                        // check for response errors
+                        if (response.status !== 200) {
+
+                            const errorMsg = 'Database response error: ' + response.status;
+                            console.log(errorMsg);
+                            const tr = document.createElement("tr");
+                            const td = document.createElement("td");
+                            td.innerHTML = errorMsg;
+                            tr.appendChild(td);
+                            resultContainer.appendChild(tr);
+
+                            return;
+                        }
+                        // valid response will have json data
+                        response.json().then(data => {
+                            console.log(data);
+                            console.log(data.location)
+
+                            // World Data
+                            document.getElementById("name").innerHTML = data.location.name;
+                            document.getElementById("region").innerHTML = data.location.region;
+                            document.getElementById("country").innerHTML = data.location.country;
+                            document.getElementById("lat").innerHTML = data.location.lat;
+                            document.getElementById("lon").innerHTML = data.location.lon;
+                            document.getElementById("tz_id").innerHTML = data.location.tz_id;
+                            document.getElementById("localtime_epoch").innerHTML = data.location.localtime_epoch;
+                            document.getElementById("localtime").innerHTML = data.location.localtime;
+
+                            //alert("data.astronomy" + data.astronomy.astro.sunrise);
+                            // tr for each row
+                            const tr = document.createElement("tr");
+
+                            // td for each column
+                            const sunrise = document.createElement("td");
+                            const sunset = document.createElement("td");
+                            const moonrise = document.createElement("td");
+                            const moonset = document.createElement("td");
+                            const moon_phase = document.createElement("td");
+                            const moon_illumination = document.createElement("td");
+
+                            // data is specific to the API
+                            sunrise.innerHTML = data.astronomy.astro.sunrise;
+                            sunset.innerHTML = data.astronomy.astro.sunset; 
+                            moonrise.innerHTML = data.astronomy.astro.moonrise; 
+                            moonset.innerHTML = data.astronomy.astro.moonset; 
+                            moon_phase.innerHTML = data.astronomy.astro.moon_phase; 
+                            moon_illumination.innerHTML = data.astronomy.astro.moon_illumination; 
+
+                            // this builds td's into tr
+                            tr.appendChild(sunrise);
+                            tr.appendChild(sunset);
+                            tr.appendChild(moonrise);
+                            tr.appendChild(moonset);
+                            tr.appendChild(moon_phase);
+                            tr.appendChild(moon_illumination);
+
+                            // add HTML to container
+                            resultContainer.appendChild(tr);
+                        })
+                    })
+
+
+                </script>
+                
+                
+>>>>>>> 0629745ef1e270ec5a315360eb8ab531a5c2b928
 
                 <center>
                 <body>
