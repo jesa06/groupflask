@@ -1,10 +1,4 @@
 var H=34, W=20; // field size
-function getRandomQuote() {
-    let random = quotes[Math.floor(Math.random() * quotes.length)];
-    quotation.innerText = random.quotation;
-    author.innerText = random.author;
-    return random;
-}
   
 var shapeArray = [
     [[2,2],[1,2],[1,1],[0,1]],
