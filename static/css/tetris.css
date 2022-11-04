@@ -6,10 +6,6 @@ td{
     width: 17px;
     height: 17px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 55f59c96f5d410f187c6b019371e4f1a81b4f33d
 #gameField{
     margin-left: 20px;
     margin-top: 20px;
@@ -42,8 +38,8 @@ td{
     float: middle;
     margin: 0px;
     position: absolute;
-    left: 480px;
-    top: 500px;
+    left: 380px;
+    top: 340px;
 }
 #help{
     font-size: 12px;
