@@ -377,6 +377,7 @@ function pause(){
         if(isPaused){
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
+            playAudio();
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
@@ -385,6 +386,7 @@ function pause(){
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
             document.getElementById("pause").style.visibility = "visible";
+            pauseAudio();
             isPaused = true;
         }
     }
