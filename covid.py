@@ -115,8 +115,8 @@ if __name__ == "__main__":
 
     # This code looks for "world data"
     response = getCovidAPI()
-    print("World Totals")
-    world = response.json().get('world_total')  # turn response to json() so we can extract "world_total"
+    print("quote Totals")
+    world = response.json().get('quote_total')  # turn response to json() so we can extract "world_total"
     for key, value in world.items():  # this finds key, value pairs in country
         print(key, value)
 

@@ -367,13 +367,8 @@ function changeShape(){
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
 
-<<<<<<< HEAD
-
-
 var arrayScoreboard = [];
 
-=======
->>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
 // pause or end
 function gameOver(){
     clearTimeout(movingThread);
@@ -396,22 +391,12 @@ function pause(){
     }
     if(!isQuit) {
         if(isPaused){
-<<<<<<< HEAD
-            
-=======
-            pauseAudio();
->>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
             isPaused = false;
         }
         else {
-<<<<<<< HEAD
-            
-=======
-            playAudio();
->>>>>>> 8b35e609edcfc0b97924cb6fc132cc6a46382f3d
             clearTimeout(movingThread);
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";

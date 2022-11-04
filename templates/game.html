@@ -67,30 +67,11 @@
                         }
                     } 
                 </script>
-                <table id = "apitable" border = 0>
+                  <table id = "apitable" border = 0>
                     <thead>
                     <tr>
-                      <th>Time</th>
-                      <th>All-time Cases</th>
-                      <th>Recorded Deaths</th>
-                      <th>Active Cases</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                      <td id="time"></td>
-                      <td id="total_cases"></td>
-                      <td id="total_deaths"></td>
-                      <td id="active_cases"></td>
-                    </tbody>
-                  </table>
-                  
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>Country</th>
-                      <th>All-time Cases</th>
-                      <th>Recorded Deaths</th>
-                      <th>Active Cases</th>
+                      <th>author</th>
+                      <th>text</th>
                     </tr>
                     </thead>
                     <tbody id="result">
@@ -104,7 +85,7 @@
                     const resultContainer = document.getElementById("result");
                   
                     // prepare fetch options
-                    const url = "https://spring.nighthawkcodingsociety.com/api/covid/daily";
+                    const url = "https://peacock.ml/api/covid/";
                   
                     const options = {
                         method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -135,16 +116,13 @@
                         // valid response will have json data
                             response.json().then(data => {
                                 console.log(data);
-                                console.log(data.world_total)
+                                console.log(data.quote_total);
                   
                             // World Data
-                                document.getElementById("time").innerHTML = data.world_total.statistic_taken_at;
-                                document.getElementById("total_cases").innerHTML = data.world_total.total_cases;
-                                document.getElementById("total_deaths").innerHTML = data.world_total.total_deaths;
-                                document.getElementById("active_cases").innerHTML = data.world_total.active_cases;
+                    
                   
                             // Country data
-                                for (const row of data.countries_stat) {
+                                for (const row of quote_total) {
                                     console.log(row);
                   
                               // tr for each row

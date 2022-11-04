@@ -8,8 +8,12 @@ td{
 }
 #apitable {
     float: right;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    height: 32px;
+    margin: 1px;
 }
 #gameField{
     margin-left: 20px;
