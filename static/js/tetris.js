@@ -291,8 +291,11 @@ function checkLine(){
     }
 }
 function isFull(lineIndex){
-    for(var i=1;i<W-1;i++)
-        if(!existField[lineIndex][i]) return false;
+    for(var i=1;i<W-1;i++) {
+        if(!existField[lineIndex][i]) {
+            return false;
+        }
+    }
     return true;
 }
 function removeLine(lineIndex){
