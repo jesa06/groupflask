@@ -4,6 +4,7 @@ html{
 
 .quote-container {
     width: 900px;
+    height: 200px;
     padding: 20px 30px;
     border-radius: 10px;
     background-color: rgba(241, 212, 136, 0.7);
