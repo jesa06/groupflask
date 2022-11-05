@@ -91,7 +91,7 @@
                         alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!");
                     }
                 </script>
-                
+
 
                                            
                
@@ -106,35 +106,15 @@
                             x++;
                             document.getElementById("text1").value = "";
                         }
-        
-                        function display_array(){
-                            alert(playerFinalScore);
-                            var e = "<hr/>";   
-                            for (var y=0; y<array.length; y++)
-                            {
-                                e += "Player " + array[y] + " Score: " +  playerFinalScore + "<br/>";
-                            }
-                            document.getElementById("Result").innerHTML = e;
+                    function pauseAudio() {
+                        x.pause();
                         }
-
-
-                    </script>
-
-                    <script>
-                        var x = document.getElementById("audio");
-                        function playAudio() {
-                            x.play();
-                            }
-                        function pauseAudio() {
-                            x.pause();
-                            }
-                    </script>
+                </script>
 
                     <audio id="audio" autoplay hidden controls loop>
                         <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                     </audio>
-        </body>
-    </html>            
+                
                     
       
 
