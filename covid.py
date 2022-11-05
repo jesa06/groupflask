@@ -37,7 +37,7 @@ def updateTime():
 Returns:
     String: API response
 """   
-def getCovidAPI():
+def getQuote():
     global quote_data  # the quote_data global is preserved between calls to function
     try: quote_data
     except: quote_data = None
@@ -50,16 +50,22 @@ def getCovidAPI():
         RapidAPI is the world's largest API Marketplace. 
         Developers use Rapid API to discover and connect to thousands of APIs. 
         """
-        url = "https://famous-quotes4.p.rapidapi.com/random"
+        url = "https://motivational-quotes1.p.rapidapi.com/motivation"
 
-        querystring = {"category":"all","count":"2"}
-
-        headers = {
-	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
-	        "X-RapidAPI-Host": "famous-quotes4.p.rapidapi.com"
+        payload = {
+	        "key1": "value",
+	        "key2": "value"
         }
 
-        response = requests.request("GET", url, headers=headers, params=querystring)
+        headers = {
+	        "content-type": "application/json",
+	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
+	        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com"
+        }
+
+        response = requests.request("POST", url, json=payload, headers=headers)
+
+
         quote_data = response
     else:  # Request Covid Data
         response = quote_data
@@ -73,10 +79,10 @@ Returns:
 """   
 def getCountry(filter):
     # Request Covid Data
-    response = getCovidAPI()
+    response = getQuote()
     # Look for Country    
     #countries = response.json().get('countries_stat')
-    for country in 2:  # countries is a list
+    for country in 1:  # countries is a list
         if country["text"].lower() == filter.lower():  # this filters for country
             return country
     
@@ -90,7 +96,7 @@ class CovidAPI:
     """API Method to GET all Covid Data"""
     class _Read(Resource):
         def get(self):
-            return getCovidAPI().json()
+            return getQuote().json()
         
     """API Method to GET Covid Data for a Specific Country"""
     class _ReadCountry(Resource):
@@ -114,7 +120,7 @@ if __name__ == "__main__":
     print("-"*30) # cosmetic separator
 
     # This code looks for "world data"
-    response = getCovidAPI()
+    response = getQuote()
     print("quote Totals")
     world = response.json().get('quote_total')  # turn response to json() so we can extract "world_total"
     for key, value in world.items():  # this finds key, value pairs in country
