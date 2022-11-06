@@ -14,11 +14,30 @@
             <a charset="utf-8">
             <title>Tetris</title>
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+        
         </head>
 
     
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
             <!-- <button onclick="myFunction()">Click here to end the game</button>-->
+            <div class="quote-container" id="quote-container">
+                <!-- Quote -->
+                <div class="quote-text">
+                    <span id="quote"></span>
+                </div>
+                <!-- Author -->
+                <div class="quote-author">
+                    <span id="author"></span>
+                </div>
+                <!-- Buttons -->
+            </div>
+            <!-- Loader -->
+            <div class="loader" id="loader"></div>
+            <!-- Script -->
+            <script src="{{url_for('static',filename='js/script.js')}}"></script>
+                    <button id="new-quote">new quote</button>
             <button class="button button1" onclick="helpFunction()">How to play</button>
             <button class="button button2" onclick="api()">info</button>
         
@@ -71,22 +90,30 @@
                     function helpFunction() {
                         alert("Clear lines with the falling pieces to score! Just create lines with the falling pieces and don't let the blocks reach the top or you lose!");
                     }
-                </script>                
+                </script>
 
 
-                <script>
-                    var x = document.getElementById("audio");
-                    function playAudio() {
-                        x.play();
+                                           
+               
+                    
+                    <script>
+                        var x = 0;
+                        var array = Array();
+        
+                        function add_score_to_array(){
+                            array[x] = document.getElementById("text1").value;
+                            alert("Player Name: " + array[x] + " Added to the scoreboard" );
+                            x++;
+                            document.getElementById("text1").value = "";
                         }
                     function pauseAudio() {
                         x.pause();
                         }
                 </script>
 
-                <audio id="audio" autoplay hidden controls loop>
-                    <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
-                </audio>
+                    <audio id="audio" autoplay hidden controls loop>
+                        <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
+                    </audio>
                 
                     
       
