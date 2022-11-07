@@ -41,8 +41,6 @@
             <button class="button button2" onclick="api()">info</button>
         
             <div id="gameField">
-
-                
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
                         <h1>Game Over</h1> <!--bigger the number with h, larger the font size-->
@@ -76,7 +74,7 @@
                     <p id="help">'q' to change shape</p>
                     <div id="comboField"><i></i></div>
                 </div>
-            </div>
+            
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
                 <script>
                     function myFunction() {
@@ -115,6 +113,8 @@
                     <audio id="audio" autoplay hidden controls loop>
                         <source src="/static/assets/Tetris.mp3" type="audio/mpeg" loop="true">
                     </audio>
+            </div>
+        </body>
                 
                     
       
