@@ -362,7 +362,6 @@ var arrayScoreboard = [];
 function gameOver(){
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
-    document.getElementById("quote-container").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
     initExistField();
     if (!isQuit) {
@@ -384,7 +383,6 @@ function pause(){
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
             document.getElementById("gameField").style.visibility = "visible";
-            document.getElementById("quote-container").style.visibility = "hidden";
             isPaused = false;
         }
         else {
@@ -392,7 +390,6 @@ function pause(){
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
             document.getElementById("pause").style.visibility = "visible";
-            document.getElementById("quote-container").style.visibility = "visible";
             isPaused = true;
         }
     }
