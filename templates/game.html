@@ -16,12 +16,13 @@
             <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/tetris.css')}}">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-        
+                
         </head>
 
     
         <body> <!-- id and class refer to code built in the static/js/tetris.js file by Backend Developer-->
             <!-- <button onclick="myFunction()">Click here to end the game</button>-->
+            <!-- Script -->
             <div class="quote-container" id="quote-container">
                 <!-- Quote -->
                 <div class="quote-text">
@@ -33,15 +34,15 @@
                 </div>
                 <!-- Buttons -->
             </div>
-            <!-- Loader -->
             <div class="loader" id="loader"></div>
-            <!-- Script -->
             <script src="{{url_for('static',filename='js/script.js')}}"></script>
-                    <button id="new-quote">new quote</button>
+            
             <button class="button button1" onclick="helpFunction()">How to play</button>
             <button class="button button2" onclick="api()">info</button>
         
             <div id="gameField">
+
+                
                 <div id="gameover">
                     <center> <!--puts the text in the center-->
                         <h1>Game Over</h1> <!--bigger the number with h, larger the font size-->
@@ -75,7 +76,7 @@
                     <p id="help">'q' to change shape</p>
                     <div id="comboField"><i></i></div>
                 </div>
-                
+            </div>
                 <script type="text/javascript" src="{{url_for('static',filename='js/tetris.js')}}"></script>
                 <script>
                     function myFunction() {

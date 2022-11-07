@@ -19,8 +19,8 @@ var shapeArray = [
     [[2,2],[2,1],[2,0],[1,0]],
     [[2,1],[1,1],[0,1],[0,2]],
     [[1,2],[0,2],[0,1],[0,0]]
-];
-var shapeRotateMap = [1,0,3,2,4,6,7,8,5,10,9,12,13,14,11,16,17,18,15];
+]; // shape 
+var shapeRotateMap = [1,0,3,2,4,6,7,8,5,10,9,12,13,14,11,16,17,18,15];//rotate shape of the shape
 var shapeColorArray = [
     "rgb(199,82,82)",
     "rgb(233,174,43)",
@@ -28,7 +28,7 @@ var shapeColorArray = [
     "rgb(53,135,145)",
     "rgb(49,95,151)",
     "rgb(102,86,167)"
-];
+];//color
 var tileColor = "rgb(9,17,26)",
     shapeColor,
     wallColor = "rgb(22,41,63)";
@@ -101,6 +101,7 @@ function initExistField(){
         }
     }
 }
+//table
 function drawField(){
     var fieldTag = "<table id=\"gameTable\" border=0>";
     for(var i=0;i<H;i++){
@@ -193,8 +194,11 @@ function moveDown(){
     showShape();
     movingThread = setTimeout("moveDown()",movingSpeed);
 }
+
 function rotateShape(){
-    if(!canRotate()) return;
+    if(!canRotate()) {
+        return;
+    }   
     removeShape();
     shapeCell=[];
     currentShape = shapeRotateMap[currentShape];
@@ -238,6 +242,7 @@ function canMove(dy,dx){
     }
     return true;
 }
+// this function is to identify the shape whether it can move
 function moveLR(delta){
     if(!canMove(0,delta) || isPaused) return;
     removeShape();
@@ -313,7 +318,6 @@ function updateScore(plusScore,combo){
     var comboScore = plusScore * combo;
     score += comboScore;
     document.getElementById("score").innerHTML = score;
-    getRandomJoke();
     return comboScore;
 }
 function displayCombo(combo, finalScore){
@@ -356,17 +360,10 @@ var arrayScoreboard = [];
 
 // pause or end
 function gameOver(){
-    var x = document.getElementById("audio");
-    function playAudio() {
-        x.play();
-    }
-    function pauseAudio() {
-        x.pause();
-    }
     clearTimeout(movingThread);
     document.getElementById("gameField").style.visibility = "hidden";
+    document.getElementById("quote-container").style.visibility = "hidden";
     document.getElementById("gameover").style.visibility = "visible";
-    pauseAudio();
     initExistField();
     if (!isQuit) {
         alert("[Game Over!]\nLevel: "+level+"\nScore: "+score);
@@ -386,8 +383,8 @@ function pause(){
         if(isPaused){
             movingThread = setTimeout("moveDown()",movingSpeed);
             document.getElementById("pause").style.visibility = "hidden";
-            playAudio();
             document.getElementById("gameField").style.visibility = "visible";
+            document.getElementById("quote-container").style.visibility = "hidden";
             isPaused = false;
         }
         else {
@@ -395,7 +392,7 @@ function pause(){
             document.getElementById("gameField").style.visibility = "hidden";
             document.getElementById("gameover").style.visibility = "hidden";
             document.getElementById("pause").style.visibility = "visible";
-            pauseAudio();
+            document.getElementById("quote-container").style.visibility = "visible";
             isPaused = true;
         }
     }
