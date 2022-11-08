@@ -50,20 +50,17 @@ def getQuote():
         RapidAPI is the world's largest API Marketplace. 
         Developers use Rapid API to discover and connect to thousands of APIs. 
         """
-        url = "https://motivational-quotes1.p.rapidapi.com/motivation"
+        url = "https://famous-quotes4.p.rapidapi.com/random"
 
-        payload = {
-	        "key1": "value",
-	        "key2": "value"
-        }
+        querystring = {"category":"all","count":"4"}
 
         headers = {
-	        "content-type": "application/json",
 	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
-	        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com"
+	        "X-RapidAPI-Host": "famous-quotes4.p.rapidapi.com"
         }
 
-        response = requests.request("POST", url, json=payload, headers=headers)
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
 
 
         quote_data = response
@@ -77,14 +74,14 @@ def getQuote():
 Returns:
     String: Filter of API response
 """   
-def getCountry(filter):
+def getSaying(filter):
     # Request Covid Data
     response = getQuote()
     # Look for Country    
     #countries = response.json().get('countries_stat')
-    for country in 1:  # countries is a list
-        if country["text"].lower() == filter.lower():  # this filters for country
-            return country
+    for author in 1:  # countries is a list
+        if author["text"].lower() == filter.lower():  # this filters for country
+            return author
     
     return {"message": filter + " not found"}
 
@@ -92,7 +89,7 @@ def getCountry(filter):
 """Defines API Resources 
   URLs are defined with api.add_resource
 """   
-class CovidAPI:
+class quoteAPI:
     """API Method to GET all Covid Data"""
     class _Read(Resource):
         def get(self):
@@ -101,7 +98,7 @@ class CovidAPI:
     """API Method to GET Covid Data for a Specific Country"""
     class _ReadCountry(Resource):
         def get(self, filter):
-            return jsonify(getCountry(filter))
+            return jsonify(getSaying(filter))
     
     # resource is called an endpoint: base usr + prefix + endpoint
     api.add_resource(_Read, '/')
