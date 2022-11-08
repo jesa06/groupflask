@@ -1,5 +1,5 @@
 const quoteContainer = document.getElementById('quote-container');
-const quoteText = document.getElementById('quote');
+const text = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
@@ -22,23 +22,23 @@ function complete() {
 async function getQuote() {
     loading();
     const proxyUrl = 'https://whispering-tor-04671.herokuapp.com/'
-    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+    const apiUrl = 'https://peacock.ml/api/covid/';
     try {
         const response = await fetch(proxyUrl + apiUrl);
         const data = await response.json();
         // If Author is blank, add 'Unknown'
-        if (data.quoteAuthor === '') {
+        if (data.author === '') {
             authorText.innerText = 'Unknown';
         } else {
-            authorText.innerText = data.quoteAuthor;
+            authorText.innerText = data.author;
         }
         // Reduce font size for long quotes
-        if (data.quoteText.length > 120) {
-            quoteText.classList.add('long-quote');
+        if (data.text.length > 120) {
+            text.classList.add('long-quote');
         } else {
-            quoteText.classList.remove('long-quote');
+            text.classList.remove('long-quote');
         }
-        quoteText.innerText = data.quoteText;
+        text.innerText = data.text;
         // Stop Loader, Show Quote
         complete();
     } catch (error) {
@@ -48,7 +48,7 @@ async function getQuote() {
 
 // Tweet Quote
 function tweetQuote() {
-    const quote = quoteText.innerText;
+    const quote = text.innerText;
     const author = authorText.innerText;
 }
 
