@@ -52,7 +52,7 @@ def getQuote():
         """
         url = "https://famous-quotes4.p.rapidapi.com/random"
 
-        querystring = {"category":"all","count":"4"}
+        querystring = {"category":"all","count":"1"}
 
         headers = {
 	        "X-RapidAPI-Key": "56cf0d9c39msh90ab47fd56c02e6p1d2792jsn0f4dfaa46b90",
